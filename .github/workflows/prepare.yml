@@ -1,0 +1,21 @@
+name: prepare-dist
+on:
+  push:
+    branches:
+      - release-*
+jobs:
+  prepare-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_CQ_BOT }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: Prepare dist'

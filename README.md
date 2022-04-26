@@ -1,0 +1,50 @@
+# setup-cloudquery-action
+
+Example usage:
+
+Create a `.github/workflows/cloudquery.yml` file with the content of:
+
+```yaml
+name: CloudQuery
+on:
+  schedule:
+    # Run daily at 03:00 (3am)
+    - cron: '0 3 * * *'
+
+jobs:
+  cloudquery:
+    runs-on: ubuntu-latest
+    steps:
+      # Setup AWS credentials (example)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: <role-arn>
+          aws-region: <region>
+
+      # Setup Azure credentials (example)
+      - name: 'Configure Azure credentials'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Setup GCP credentials (example)
+      - name: 'Configure GCP credentials'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: <identity-provider>
+          service_account: <service-account>
+
+      - uses: cloudquery/setup-cloudquery@v1
+        with:
+          # required, string to connect to Postgres DB
+          dsn: '${{ secrets.CLOUDQUERY_DSN }}'
+          # optional, defaults to aws,azure,gcp
+          providers: providers
+          # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
+          version: latest
+          # optional, defaults to true. Whether to fetch resources or only configure the CLI
+          fetch: true
+```
