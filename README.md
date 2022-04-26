@@ -1,5 +1,7 @@
 # setup-cloudquery-action
 
+**WORK IN PROGRESS AND MIGHT BE DEPRECATED, SEE [ISSUE](https://github.com/cloudquery/cloudquery-issues/issues/143)**
+
 Example usage:
 
 Create a `.github/workflows/cloudquery.yml` file with the content of:
