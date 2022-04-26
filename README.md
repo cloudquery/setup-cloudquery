@@ -44,7 +44,7 @@ jobs:
           # required, string to connect to Postgres DB
           dsn: '${{ secrets.CLOUDQUERY_DSN }}'
           # optional, defaults to aws,azure,gcp
-          providers: providers
+          providers: aws,azure,gcp
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
           version: latest
           # optional, defaults to true. Whether to fetch resources or only configure the CLI
