@@ -3,7 +3,7 @@ import { execaCommand } from 'execa';
 import ora from 'ora';
 import chalk from 'chalk';
 
-const installBinary = (binary) => async (version) => {
+const installBinary = (binary: string) => async (version: string) => {
   const isLatest = version === 'latest';
   const message = isLatest
     ? `${chalk.green('latest')} version`
@@ -26,7 +26,7 @@ const binaries = {
 };
 
 export const getInstaller = () => {
-  const binary = binaries[platform()];
+  const binary = binaries[platform() as keyof typeof binaries];
   if (!binary) {
     throw new Error(`Unsupported platform: ${platform()}`);
   }

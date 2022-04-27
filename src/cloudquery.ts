@@ -1,6 +1,6 @@
 import { execaCommand } from 'execa';
 
-export const initProvider = async (provider) => {
+export const initProvider = async (provider: string) => {
   await execaCommand(`./cloudquery init ${provider}`, {
     stdout: 'inherit',
   });
