@@ -13,7 +13,8 @@ export const getConfig = async () => {
     const client = new pg.Client(dsn);
     await client.connect();
     await client.end();
-  } catch (error) {
+  } catch (err) {
+    const error = err as Error;
     throw new Error(`Unable to connect to database: ${error.message}`);
   }
 

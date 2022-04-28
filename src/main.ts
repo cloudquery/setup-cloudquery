@@ -26,7 +26,8 @@ async function main() {
     if (fetch) {
       await runFetch();
     }
-  } catch (error) {
+  } catch (err) {
+    const error = err as Error;
     core.error(error);
     core.setFailed(error.message);
   }
