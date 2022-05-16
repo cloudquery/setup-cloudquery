@@ -8,12 +8,17 @@ export const getConfig = async () => {
     throw new Error(`Invalid version: ${version}`);
   }
 
-  const dsn =
-    core.getInput('dsn', { required: false }) ||
-    'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable';
+  const [username, password, host, port, database] = [
+    core.getInput('dbUser', { required: false }) || 'postgres',
+    core.getInput('dbPass', { required: false }) || 'pass',
+    core.getInput('dbHost', { required: false }) || 'localhost',
+    parseInt(core.getInput('dbPort', { required: false }) || '5432'),
+    core.getInput('dbName', { required: false }) || 'postgres',
+  ];
 
   try {
-    const client = new pg.Client(dsn);
+    const dns = `postgres://${username}:${password}@${host}:${port}/${database}?sslmode=disable`;
+    const client = new pg.Client(dns);
     await client.connect();
     await client.end();
   } catch (err) {
@@ -26,7 +31,13 @@ export const getConfig = async () => {
     core.getInput('fetch_resources', { required: false }) || '*';
   return {
     version,
-    dsn,
+    db: {
+      username,
+      password,
+      host,
+      port,
+      database,
+    },
     provider,
     resources: fetchResources
       .split(',')
