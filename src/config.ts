@@ -8,7 +8,10 @@ export const getConfig = async () => {
     throw new Error(`Invalid version: ${version}`);
   }
 
-  const dsn = core.getInput('dsn', { required: true });
+  const dsn =
+    core.getInput('dsn', { required: false }) ||
+    'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable';
+
   try {
     const client = new pg.Client(dsn);
     await client.connect();
@@ -18,8 +21,16 @@ export const getConfig = async () => {
     throw new Error(`Unable to connect to database: ${error.message}`);
   }
 
-  const providers = core.getInput('providers', { required: false }).split(',');
-  const fetch =
-    core.getInput('fetch', { required: false }).toLocaleLowerCase() !== 'false';
-  return { version, dsn, providers, fetch };
+  const provider = core.getInput('provider', { required: false }) || 'aws';
+  const fetchResources =
+    core.getInput('fetch_resources', { required: false }) || '*';
+  return {
+    version,
+    dsn,
+    provider,
+    resources: fetchResources
+      .split(',')
+      .map((resource) => resource.trim())
+      .filter(Boolean),
+  };
 };

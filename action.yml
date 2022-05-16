@@ -5,15 +5,15 @@ inputs:
   dsn:
     description: 'Postgres connection string to store results'
     required: true
-  providers:
-    description: 'Providers comma separated list to configure'
-    default: 'aws,gcp,azure'
+  provider:
+    description: 'Provider to configure'
+    default: 'aws'
   version:
     description: 'CloudQuery CLI version to install'
     default: 'latest'
-  fetch:
-    description: 'Should the CloudQuery CLI run fetch after initializing providers'
-    default: true
+  fetch_resources:
+    description: 'Comma separated list of resources to fetch. Use "*" to fetch all resources. Use an empty string to skip fetching'
+    default: '*'
 runs:
   using: 'node16'
   main: 'dist/main.js'

@@ -11,19 +11,25 @@ const DEFAULT_DSN =
 
 async function main() {
   try {
-    const { version, dsn, providers, fetch } = await getConfig();
+    const { version, dsn, provider, resources } = await getConfig();
 
     await getInstaller()(version);
-    for (const provider of providers) {
-      await initProvider(provider);
-    }
+    await initProvider(provider);
 
     // TODO: Once cloudquery supports configuring the dsn, we can remove this workaround
     const configPath = path.resolve('config.hcl');
     const config = await fs.readFile(configPath, 'utf8');
-    await fs.writeFile(configPath, config.replace(DEFAULT_DSN, dsn));
+    const withDsn = config.replace(DEFAULT_DSN, dsn);
+    await fs.writeFile(configPath, withDsn);
 
-    if (fetch) {
+    if (resources.length > 0) {
+      const resourcesString = resources.some((resource) => resource === '*')
+        ? `resources = [ "*" ]`
+        : `resources = ${resources
+            .map((resource) => `"${resource}"`)
+            .join(',')}`;
+      const withResources = withDsn.replace(DEFAULT_DSN, resourcesString);
+      await fs.writeFile(configPath, withResources);
       await runFetch();
     }
   } catch (err) {

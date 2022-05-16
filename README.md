@@ -41,12 +41,12 @@ jobs:
 
       - uses: cloudquery/setup-cloudquery@v1
         with:
-          # required, string to connect to Postgres DB
+          # optional, string to connect to Postgres DB. Defaults to 'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable'
           dsn: '${{ secrets.CLOUDQUERY_DSN }}'
-          # optional, defaults to aws,azure,gcp
-          providers: aws,azure,gcp
+          # optional, defaults to aws
+          provider: aws
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
           version: latest
-          # optional, defaults to true. Whether to fetch resources or only configure the CLI
-          fetch: true
+          # optional, defaults to "*". Comma separated list of resources to fetch. Use an empty string to skip fetching
+          fetch_resources: '*'
 ```
