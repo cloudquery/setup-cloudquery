@@ -27,12 +27,15 @@ export const updateCredentials = async (
   return withCredentials;
 };
 
-export const updateResoruces = async (config: string, resources: string[]) => {
-  const resourcesString = resources.some((resource) => resource === '*')
-    ? `resources = [ "*" ]`
-    : `resources = [ ${resources
-        .map((resource) => `"${resource}"`)
-        .join(',')} ]`;
+export const updateResources = async (config: string, resources: string[]) => {
+  const fetchAll = resources.some((resource) => resource === '*');
+  if (fetchAll) {
+    // no need to update the config
+    return config;
+  }
+  const resourcesString = `resources = [ ${resources
+    .map((resource) => `"${resource}"`)
+    .join(',')} ]`;
   const withResources = config.replace(
     /resources = \[[\s\S]+?\]/gm,
     resourcesString,

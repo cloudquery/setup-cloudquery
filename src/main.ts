@@ -8,7 +8,7 @@ import {
   initProvider,
   fetch as runFetch,
   updateCredentials,
-  updateResoruces as updateResources,
+  updateResources as updateResources,
 } from './cloudquery.js';
 
 async function main() {
