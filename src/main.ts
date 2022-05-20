@@ -4,26 +4,34 @@ import * as core from '@actions/core';
 
 import { getConfig } from './config.js';
 import { getInstaller } from './install.js';
-import { initProvider, fetch as runFetch } from './cloudquery.js';
-
-const DEFAULT_DSN =
-  'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable';
+import {
+  initProvider,
+  fetch as runFetch,
+  updateCredentials,
+  updateResources as updateResources,
+} from './cloudquery.js';
 
 async function main() {
   try {
-    const { version, dsn, providers, fetch } = await getConfig();
+    const { version, db, provider, resources } = await getConfig();
 
     await getInstaller()(version);
-    for (const provider of providers) {
-      await initProvider(provider);
-    }
-
-    // TODO: Once cloudquery supports configuring the dsn, we can remove this workaround
+    // Remove existing config (useful for local environments)
     const configPath = path.resolve('config.hcl');
-    const config = await fs.readFile(configPath, 'utf8');
-    await fs.writeFile(configPath, config.replace(DEFAULT_DSN, dsn));
+    await fs.unlink(configPath);
 
-    if (fetch) {
+    await initProvider(provider);
+
+    const config = await fs.readFile(configPath, 'utf8');
+    const withCredentials = await updateCredentials(
+      config,
+      db as Record<string, string | number>,
+    );
+    await fs.writeFile(configPath, withCredentials);
+
+    if (resources.length > 0) {
+      const withResources = await updateResources(withCredentials, resources);
+      await fs.writeFile(configPath, withResources);
       await runFetch();
     }
   } catch (err) {

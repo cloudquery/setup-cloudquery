@@ -11,7 +11,7 @@ const installBinary = (binary: string) => async (version: string) => {
   const spinner = ora(`Downloading ${message} of CloudQuery`).start();
   const downloadUrl = isLatest
     ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
-    : `https://github.com/cloudquery/cloudquery/releases/download/${version}/cloudquery_Darwin_arm64`;
+    : `https://github.com/cloudquery/cloudquery/releases/download/${version}/${binary}`;
   await execaCommand(`curl -L ${downloadUrl} -o cloudquery`, {
     stdout: 'inherit',
   });

@@ -8,9 +8,17 @@ export const getConfig = async () => {
     throw new Error(`Invalid version: ${version}`);
   }
 
-  const dsn = core.getInput('dsn', { required: true });
+  const [username, password, host, port, database] = [
+    core.getInput('dbUser', { required: false }) || 'postgres',
+    core.getInput('dbPass', { required: false }) || 'pass',
+    core.getInput('dbHost', { required: false }) || 'localhost',
+    parseInt(core.getInput('dbPort', { required: false }) || '5432'),
+    core.getInput('dbName', { required: false }) || 'postgres',
+  ];
+
   try {
-    const client = new pg.Client(dsn);
+    const dns = `postgres://${username}:${password}@${host}:${port}/${database}?sslmode=disable`;
+    const client = new pg.Client(dns);
     await client.connect();
     await client.end();
   } catch (err) {
@@ -18,8 +26,22 @@ export const getConfig = async () => {
     throw new Error(`Unable to connect to database: ${error.message}`);
   }
 
-  const providers = core.getInput('providers', { required: false }).split(',');
-  const fetch =
-    core.getInput('fetch', { required: false }).toLocaleLowerCase() !== 'false';
-  return { version, dsn, providers, fetch };
+  const provider = core.getInput('provider', { required: false }) || 'aws';
+  const fetchResources =
+    core.getInput('fetch_resources', { required: false }) || '*';
+  return {
+    version,
+    db: {
+      username,
+      password,
+      host,
+      port,
+      database,
+    },
+    provider,
+    resources: fetchResources
+      .split(',')
+      .map((resource) => resource.trim())
+      .filter(Boolean),
+  };
 };
