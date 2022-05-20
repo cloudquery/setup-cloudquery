@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.1...v1.0.2) (2022-05-20)
+
+
+### Bug Fixes
+
+* Better configuration defaults ([#5](https://github.com/cloudquery/setup-cloudquery/issues/5)) ([116b529](https://github.com/cloudquery/setup-cloudquery/commit/116b529af553244b91b8448c1ea0ab12e9235be4))
+
 ### [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-04-28)
 
 
