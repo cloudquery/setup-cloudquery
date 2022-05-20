@@ -16496,10 +16496,16 @@ const getConfig = async () => {
     if (version !== 'latest' && !semver_default().valid(version)) {
         throw new Error(`Invalid version: ${version}`);
     }
-    const dsn = core.getInput('dsn', { required: false }) ||
-        'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable';
+    const [username, password, host, port, database] = [
+        core.getInput('dbUser', { required: false }) || 'postgres',
+        core.getInput('dbPass', { required: false }) || 'pass',
+        core.getInput('dbHost', { required: false }) || 'localhost',
+        parseInt(core.getInput('dbPort', { required: false }) || '5432'),
+        core.getInput('dbName', { required: false }) || 'postgres',
+    ];
     try {
-        const client = new (lib_default()).Client(dsn);
+        const dns = `postgres://${username}:${password}@${host}:${port}/${database}?sslmode=disable`;
+        const client = new (lib_default()).Client(dns);
         await client.connect();
         await client.end();
     }
@@ -16511,7 +16517,13 @@ const getConfig = async () => {
     const fetchResources = core.getInput('fetch_resources', { required: false }) || '*';
     return {
         version,
-        dsn,
+        db: {
+            username,
+            password,
+            host,
+            port,
+            database,
+        },
         provider,
         resources: fetchResources
             .split(',')
@@ -19101,7 +19113,7 @@ const installBinary = (binary) => async (version) => {
     const spinner = ora(`Downloading ${message} of CloudQuery`).start();
     const downloadUrl = isLatest
         ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
-        : `https://github.com/cloudquery/cloudquery/releases/download/${version}/cloudquery_Darwin_arm64`;
+        : `https://github.com/cloudquery/cloudquery/releases/download/${version}/${binary}`;
     await execaCommand(`curl -L ${downloadUrl} -o cloudquery`, {
         stdout: 'inherit',
     });
@@ -19131,6 +19143,26 @@ const initProvider = async (provider) => {
 const fetch = async () => await execaCommand(`./cloudquery fetch`, {
     stdout: 'inherit',
 });
+const updateCredentials = async (config, db) => {
+    // TODO: Once cloudquery supports configuring the dsn, we can remove this workaround
+    let withCredentials = config;
+    Object.entries(db).forEach(([key, value]) => {
+        withCredentials = withCredentials.replace(new RegExp(`${key}.*=.*`), Number.isInteger(value) ? `${key} = ${value}` : `${key} = "${value}"`);
+    });
+    return withCredentials;
+};
+const updateResources = async (config, resources) => {
+    const fetchAll = resources.some((resource) => resource === '*');
+    if (fetchAll) {
+        // no need to update the config
+        return config;
+    }
+    const resourcesString = `resources = [ ${resources
+        .map((resource) => `"${resource}"`)
+        .join(',')} ]`;
+    const withResources = config.replace(/resources = \[[\s\S]+?\]/gm, resourcesString);
+    return withResources;
+};
 
 ;// CONCATENATED MODULE: ./src/main.ts
 
@@ -19139,24 +19171,19 @@ const fetch = async () => await execaCommand(`./cloudquery fetch`, {
 
 
 
-const DEFAULT_DSN = 'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable';
 async function main_main() {
     try {
-        const { version, dsn, provider, resources } = await getConfig();
+        const { version, db, provider, resources } = await getConfig();
         await getInstaller()(version);
-        await initProvider(provider);
-        // TODO: Once cloudquery supports configuring the dsn, we can remove this workaround
+        // Remove existing config (useful for local environments)
         const configPath = external_path_default().resolve('config.hcl');
+        await external_fs_.promises.unlink(configPath);
+        await initProvider(provider);
         const config = await external_fs_.promises.readFile(configPath, 'utf8');
-        const withDsn = config.replace(DEFAULT_DSN, dsn);
-        await external_fs_.promises.writeFile(configPath, withDsn);
+        const withCredentials = await updateCredentials(config, db);
+        await external_fs_.promises.writeFile(configPath, withCredentials);
         if (resources.length > 0) {
-            const resourcesString = resources.some((resource) => resource === '*')
-                ? `resources = [ "*" ]`
-                : `resources = ${resources
-                    .map((resource) => `"${resource}"`)
-                    .join(',')}`;
-            const withResources = withDsn.replace(DEFAULT_DSN, resourcesString);
+            const withResources = await updateResources(withCredentials, resources);
             await external_fs_.promises.writeFile(configPath, withResources);
             await fetch();
         }
