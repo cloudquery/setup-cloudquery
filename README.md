@@ -41,12 +41,26 @@ jobs:
 
       - uses: cloudquery/setup-cloudquery@v1
         with:
-          # optional, string to connect to Postgres DB. Defaults to 'postgres://postgres:pass@localhost:5432/postgres?sslmode=disable'
-          dsn: '${{ secrets.CLOUDQUERY_DSN }}'
+          # optional, defaults to 'postgres'
+          db_user: postgres
+          # optional, defaults to 'password'
+          db_pass: '${{ secrets.DB_PASSWORD }}'
+          # optional, defaults to 'localhost'
+          db_host: localhost
+          # optional, defaults to '5432'
+          db_port: '5432'
+          # optional, defaults to 'postgres'
+          db_name: 'postgres'
           # optional, defaults to aws
           provider: aws
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
           version: latest
           # optional, defaults to "*". Comma separated list of resources to fetch. Use an empty string to skip fetching
           fetch_resources: '*'
+          # additional_flags, defaults to an empty string. Additional flags to pass to CloudQuery CLI
+          additional_flags: ''
+        env:
+          # For sharding support, pass CI_NODE_INDEX and CI_NODE_TOTAL to only fetch a shard of the resources
+          CI_NODE_INDEX: 0
+          CI_NODE_TOTAL: 5
 ```

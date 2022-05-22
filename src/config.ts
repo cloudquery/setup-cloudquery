@@ -8,12 +8,13 @@ export const getConfig = async () => {
     throw new Error(`Invalid version: ${version}`);
   }
 
-  const [username, password, host, port, database] = [
-    core.getInput('dbUser', { required: false }) || 'postgres',
-    core.getInput('dbPass', { required: false }) || 'pass',
-    core.getInput('dbHost', { required: false }) || 'localhost',
-    parseInt(core.getInput('dbPort', { required: false }) || '5432'),
-    core.getInput('dbName', { required: false }) || 'postgres',
+  const [username, password, host, port, database, additionalFlags] = [
+    core.getInput('db_user', { required: false }) || 'postgres',
+    core.getInput('db_pass', { required: false }) || 'pass',
+    core.getInput('db_host', { required: false }) || 'localhost',
+    parseInt(core.getInput('db_port', { required: false }) || '5432'),
+    core.getInput('db_name', { required: false }) || 'postgres',
+    core.getInput('additional_flags', { required: false }) || '',
   ];
 
   try {
@@ -27,8 +28,7 @@ export const getConfig = async () => {
   }
 
   const provider = core.getInput('provider', { required: false }) || 'aws';
-  const fetchResources =
-    core.getInput('fetch_resources', { required: false }) || '*';
+  const fetchResources = core.getInput('fetch_resources', { required: false }) || '*';
   return {
     version,
     db: {
@@ -43,5 +43,6 @@ export const getConfig = async () => {
       .split(',')
       .map((resource) => resource.trim())
       .filter(Boolean),
+    additionalFlags,
   };
 };

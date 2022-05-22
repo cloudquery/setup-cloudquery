@@ -13,6 +13,7 @@
     "downlevelIteration": true,
     "strict": true,
     "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./typings"],
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   },
   "include": ["src"],
