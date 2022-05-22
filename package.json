@@ -9,7 +9,7 @@
     "build": "ncc build src/main.ts -o dist",
     "format": "prettier --write src/**/*.ts",
     "format:ci": "prettier --check src/**/*.ts",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "eslint 'src/**/*.ts' --max-warnings=0",
     "start": "ts-node --esm src/main.ts"
   },
   "private": true,
@@ -27,6 +27,7 @@
     "@actions/core": "^1.8.2",
     "@actions/github": "^5.0.3",
     "chalk": "^5.0.0",
+    "ci-parallel-vars": "^1.0.1",
     "execa": "^6.0.0",
     "ora": "^6.0.0",
     "pg": "^8.7.3",

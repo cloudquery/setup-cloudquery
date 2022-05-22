@@ -3,11 +3,19 @@ import { execaCommand } from 'execa';
 import ora from 'ora';
 import chalk from 'chalk';
 
-const installBinary = (binary: string) => async (version: string) => {
+const binaries = {
+  darwin: 'cloudquery_darwin_x86_64',
+  win32: 'cloudquery_windows_x86_64.exe',
+  linux: 'cloudquery_linux_x86_64',
+};
+
+export const installBinary = async (version: string) => {
+  const binary = binaries[platform() as keyof typeof binaries];
+  if (!binary) {
+    throw new Error(`Unsupported platform: ${platform()}`);
+  }
   const isLatest = version === 'latest';
-  const message = isLatest
-    ? `${chalk.green('latest')} version`
-    : `version '${chalk.green(version)}'`;
+  const message = isLatest ? `${chalk.green('latest')} version` : `version '${chalk.green(version)}'`;
   const spinner = ora(`Downloading ${message} of CloudQuery`).start();
   const downloadUrl = isLatest
     ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
@@ -17,18 +25,4 @@ const installBinary = (binary: string) => async (version: string) => {
   });
   await execaCommand('chmod +x cloudquery');
   spinner.succeed(`Finished downloading ${message} of CloudQuery`);
-};
-
-const binaries = {
-  darwin: 'cloudquery_darwin_x86_64',
-  win32: 'cloudquery_windows_x86_64.exe',
-  linux: 'cloudquery_linux_x86_64',
-};
-
-export const getInstaller = () => {
-  const binary = binaries[platform() as keyof typeof binaries];
-  if (!binary) {
-    throw new Error(`Unsupported platform: ${platform()}`);
-  }
-  return installBinary(binary);
 };
