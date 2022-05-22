@@ -16537,8 +16537,6 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 
-// EXTERNAL MODULE: external "path"
-var external_path_ = __nccwpck_require__(1017);
 // EXTERNAL MODULE: external "fs"
 var external_fs_ = __nccwpck_require__(7147);
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
@@ -19266,7 +19264,6 @@ const getFetchResources = async (config, inputResources) => {
 
 
 
-
 async function main_main() {
     try {
         core.info('Extracting config');
@@ -19275,17 +19272,17 @@ async function main_main() {
         await installBinary(version);
         core.info(`Initializing provider ${source.magenta(provider)}`);
         // Remove existing config (useful for local environments)
-        const configPath = __nccwpck_require__.ab + "config.hcl";
-        await external_fs_.promises.unlink(__nccwpck_require__.ab + "config.hcl").catch(() => undefined);
+        const configPath = 'config.hcl';
+        await external_fs_.promises.unlink(configPath).catch(() => undefined);
         await initProvider(provider, additionalFlags);
         core.info(`Configuring credentials`);
-        const config = await external_fs_.promises.readFile(__nccwpck_require__.ab + "config.hcl", 'utf8');
+        const config = await external_fs_.promises.readFile(configPath, 'utf8');
         const withCredentials = await updateCredentials(config, db);
-        await external_fs_.promises.writeFile(__nccwpck_require__.ab + "config.hcl", withCredentials);
+        await external_fs_.promises.writeFile(configPath, withCredentials);
         if (resources.length > 0) {
             core.info(`Configuring resources`);
             const fetchResources = await getFetchResources(withCredentials, resources);
-            await external_fs_.promises.writeFile(__nccwpck_require__.ab + "config.hcl", fetchResources);
+            await external_fs_.promises.writeFile(configPath, fetchResources);
             core.info(`Running fetch`);
             await fetch(additionalFlags);
             core.info(`Fetch completed`);

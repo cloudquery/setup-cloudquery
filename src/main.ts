@@ -1,4 +1,3 @@
-import path from 'path';
 import { promises as fs } from 'fs';
 import * as core from '@actions/core';
 import chalk from 'chalk';
@@ -17,7 +16,7 @@ async function main() {
 
     core.info(`Initializing provider ${chalk.magenta(provider)}`);
     // Remove existing config (useful for local environments)
-    const configPath = path.resolve('config.hcl');
+    const configPath = 'config.hcl';
     await fs.unlink(configPath).catch(() => undefined);
 
     await initProvider(provider, additionalFlags);
