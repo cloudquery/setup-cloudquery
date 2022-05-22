@@ -24,21 +24,6 @@ jobs:
           role-to-assume: <role-arn>
           aws-region: <region>
 
-      # Setup Azure credentials (example)
-      - name: 'Configure Azure credentials'
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      # Setup GCP credentials (example)
-      - name: 'Configure GCP credentials'
-        uses: 'google-github-actions/auth@v0'
-        with:
-          workload_identity_provider: <identity-provider>
-          service_account: <service-account>
-
       - uses: cloudquery/setup-cloudquery@v1
         with:
           # optional, defaults to 'postgres'
