@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.1...v1.1.0) (2022-05-22)
+
+
+### Features
+
+* Add sharding support ([#8](https://github.com/cloudquery/setup-cloudquery/issues/8)) ([ca4aa5e](https://github.com/cloudquery/setup-cloudquery/commit/ca4aa5e1e3ffa9156afad4975ed062ac030d5273))
+
+
+### Bug Fixes
+
+* Better configuration defaults ([#5](https://github.com/cloudquery/setup-cloudquery/issues/5)) ([116b529](https://github.com/cloudquery/setup-cloudquery/commit/116b529af553244b91b8448c1ea0ab12e9235be4))
+
 ### [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-04-28)
 
 
