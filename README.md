@@ -27,11 +27,11 @@ jobs:
       - uses: cloudquery/setup-cloudquery@v1
         with:
           # optional, defaults to 'postgres'
-          db_user: postgres
+          db_user: '${{ secrets.DB_USER }}'
           # optional, defaults to 'password'
           db_pass: '${{ secrets.DB_PASSWORD }}'
           # optional, defaults to 'localhost'
-          db_host: localhost
+          db_host: '${{ secrets.DB_HOST }}'
           # optional, defaults to '5432'
           db_port: '5432'
           # optional, defaults to 'postgres'
