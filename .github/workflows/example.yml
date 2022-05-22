@@ -51,7 +51,7 @@ jobs:
         env:
           # split fetch across multiple machines
           CI_NODE_INDEX: ${{ matrix.machine }}
-          CI_NODE_TOTAL: 5
+          CI_NODE_TOTAL: 6
       - uses: actions/upload-artifact@v3
         if: always()
         with:
