@@ -1,0 +1,57 @@
+name: setup-cloudquery example
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  CQ_NO_TELEMETRY: '1'
+jobs:
+  cloudquery-fetch:
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        dbversion: ['postgres:latest']
+        os: [ubuntu-latest]
+        # Each config has a different set of resources
+        config: ['config-1', 'config-2', 'config-3', 'config-4', 'config-5', 'config-6']
+      fail-fast: false
+    services:
+      postgres:
+        image: ${{ matrix.dbversion }}
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: pass
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::615713231484:role/cq-playground-aws-github-action
+          aws-region: us-east-1
+      - name: Setup CloudQuery
+        uses: ./.
+        with:
+          config_path: 'example_configs/${{ matrix.config }}.hcl'
+          additional_flags: '-v'
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: 'cloudquery-${{ matrix.config }}.log'
+          path: 'cloudquery.log'

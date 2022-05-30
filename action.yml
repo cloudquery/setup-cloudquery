@@ -1,0 +1,19 @@
+name: 'setup-cloudquery-action'
+description: 'Setup CloudQuery CLI in a GitHub action environment'
+author: CloudQuery
+inputs:
+  config_path:
+    description: 'Path to CloudQuery config file'
+    default: 'config.hcl'
+    required: false
+  version:
+    description: 'CloudQuery CLI version to install'
+    default: 'latest'
+    required: false
+  additional_flags:
+    description: 'Additional flags to pass to CloudQuery CLI'
+    default: ''
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
