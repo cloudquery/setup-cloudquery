@@ -1,6 +1,12 @@
 # setup-cloudquery-action
 
-**WORK IN PROGRESS AND MIGHT BE DEPRECATED, SEE [ISSUE](https://github.com/cloudquery/cloudquery-issues/issues/143)**
+## Prerequisites
+
+A CloudQuery configuration file present in the repository the action will be triggered from.
+
+> Visit [our getting started guide](https://docs.cloudquery.io/docs/getting-started/getting-started-with-aws/) to learn how to generate a configuration file.
+
+## Setup
 
 Example usage:
 
