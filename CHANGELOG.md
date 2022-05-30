@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* Update readme ([#11](https://github.com/cloudquery/setup-cloudquery/issues/11)) ([ce4cbb4](https://github.com/cloudquery/setup-cloudquery/commit/ce4cbb4e3df0188c41e46c814473d84fed4bf5b7))
+
 ## 1.0.0 (2022-05-30)
 
 
