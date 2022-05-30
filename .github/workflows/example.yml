@@ -19,7 +19,8 @@ jobs:
       matrix:
         dbversion: ['postgres:latest']
         os: [ubuntu-latest]
-        machine: ['0', '1', '2', '3', '4', '5']
+        # Each config has a different set of resources
+        config: ['config-1', 'config-2', 'config-3', 'config-4', 'config-5', 'config-6']
       fail-fast: false
     services:
       postgres:
@@ -47,13 +48,10 @@ jobs:
       - name: Setup CloudQuery
         uses: ./.
         with:
+          config: 'example_configs/${{ matrix.config }}.hcl'
           additional_flags: '-v'
-        env:
-          # split fetch across multiple machines
-          CI_NODE_INDEX: ${{ matrix.machine }}
-          CI_NODE_TOTAL: 6
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: 'cloudquery-${{ matrix.machine }}.log'
+          name: 'cloudquery-${{ matrix.config }}.log'
           path: 'cloudquery.log'

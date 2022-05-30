@@ -2,37 +2,14 @@ name: 'setup-cloudquery-action'
 description: 'Setup CloudQuery CLI in a GitHub action environment'
 author: CloudQuery
 inputs:
-  db_user:
-    description: 'Postgres db username'
-    default: 'postgres'
-    required: false
-  db_pass:
-    description: 'Postgres db password'
-    default: 'pass'
-    required: false
-  db_host:
-    description: 'Postgres db host'
-    default: 'localhost'
-    required: false
-  db_port:
-    description: 'Postgres db port'
-    default: '5432'
-    required: false
-  db_name:
-    description: 'Postgres db name'
-    default: 'postgres'
-    required: false
-  provider:
-    description: 'Provider to configure'
-    default: 'aws'
+  config_path:
+    description: 'Path to CloudQuery config file'
+    default: 'config.hcl'
     required: false
   version:
     description: 'CloudQuery CLI version to install'
     default: 'latest'
     required: false
-  fetch_resources:
-    description: 'Comma separated list of resources to fetch. Use "*" to fetch all resources. Use an empty string to skip fetching'
-    default: '*'
   additional_flags:
     description: 'Additional flags to pass to CloudQuery CLI'
     default: ''

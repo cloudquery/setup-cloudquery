@@ -27,10 +27,10 @@
     "@actions/core": "^1.8.2",
     "@actions/github": "^5.0.3",
     "chalk": "^5.0.0",
-    "ci-parallel-vars": "^1.0.1",
     "execa": "^6.0.0",
     "ora": "^6.0.0",
-    "pg": "^8.7.3",
+    "path-exists": "^5.0.0",
+    "path-type": "^5.0.0",
     "semver": "^7.3.7"
   },
   "engines": {

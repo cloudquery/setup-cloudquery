@@ -1,6 +1,8 @@
 import semver from 'semver';
-import pg from 'pg';
 import * as core from '@actions/core';
+
+import { pathExists } from 'path-exists';
+import { isFile } from 'path-type';
 
 export const getConfig = async () => {
   const version = core.getInput('version', { required: false });
@@ -8,41 +10,23 @@ export const getConfig = async () => {
     throw new Error(`Invalid version: ${version}`);
   }
 
-  const [username, password, host, port, database, additionalFlags] = [
-    core.getInput('db_user', { required: false }) || 'postgres',
-    core.getInput('db_pass', { required: false }) || 'pass',
-    core.getInput('db_host', { required: false }) || 'localhost',
-    parseInt(core.getInput('db_port', { required: false }) || '5432'),
-    core.getInput('db_name', { required: false }) || 'postgres',
+  const [configPath, additionalFlags] = [
+    core.getInput('config_path', { required: false }) || 'config.hcl',
     core.getInput('additional_flags', { required: false }) || '',
   ];
 
-  try {
-    const dns = `postgres://${username}:${password}@${host}:${port}/${database}?sslmode=disable`;
-    const client = new pg.Client(dns);
-    await client.connect();
-    await client.end();
-  } catch (err) {
-    const error = err as Error;
-    throw new Error(`Unable to connect to database: ${error.message}`);
+  const exists = await pathExists(configPath);
+  if (!exists) {
+    throw new Error(`Config file does not exist: ${configPath}`);
   }
 
-  const provider = core.getInput('provider', { required: false }) || 'aws';
-  const fetchResources = core.getInput('fetch_resources', { required: false }) || '*';
+  const file = await isFile(configPath);
+  if (!file) {
+    throw new Error(`Path to config must be a valid file: ${configPath}`);
+  }
+
   return {
     version,
-    db: {
-      username,
-      password,
-      host,
-      port,
-      database,
-    },
-    provider,
-    resources: fetchResources
-      .split(',')
-      .map((resource) => resource.trim())
-      .filter(Boolean),
-    additionalFlags,
+    additionalFlags: `--config ${configPath} ${additionalFlags}`,
   };
 };

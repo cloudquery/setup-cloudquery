@@ -26,26 +26,12 @@ jobs:
 
       - uses: cloudquery/setup-cloudquery@v1
         with:
-          # optional, defaults to 'postgres'
-          db_user: '${{ secrets.DB_USER }}'
-          # optional, defaults to 'password'
-          db_pass: '${{ secrets.DB_PASSWORD }}'
-          # optional, defaults to 'localhost'
-          db_host: '${{ secrets.DB_HOST }}'
-          # optional, defaults to '5432'
-          db_port: '5432'
-          # optional, defaults to 'postgres'
-          db_name: 'postgres'
-          # optional, defaults to aws
-          provider: aws
+          # optional, Path to CloudQuery config file. Defaults to `config.hcl`
+          config_path: 'config.hcl'
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
           version: latest
-          # optional, defaults to "*". Comma separated list of resources to fetch. Use an empty string to skip fetching
-          fetch_resources: '*'
           # additional_flags, defaults to an empty string. Additional flags to pass to CloudQuery CLI
           additional_flags: ''
-        env:
-          # For sharding support, pass CI_NODE_INDEX and CI_NODE_TOTAL to only fetch a shard of the resources
-          CI_NODE_INDEX: 0
-          CI_NODE_TOTAL: 5
 ```
+
+For a complete example on how to use this action to parallelize CloudQuery across multiple machines, see [here](./.github/workflows/example.yml#L22)
