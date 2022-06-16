@@ -1,4 +1,4 @@
-name: 'setup-cloudquery-action'
+name: 'Set up CloudQuery'
 description: 'Setup CloudQuery CLI in a GitHub action environment'
 author: CloudQuery
 inputs:
@@ -9,3 +9,6 @@ inputs:
 runs:
   using: 'node16'
   main: 'dist/index.js'
+branding:
+  icon: 'download-cloud'
+  color: 'green'
