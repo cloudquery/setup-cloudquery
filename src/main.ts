@@ -4,7 +4,7 @@ import { platform } from 'os';
 import { execaCommand } from 'execa';
 import ora from 'ora';
 import semver from 'semver';
-import path from 'path'
+import path from 'path';
 
 const binaries = {
   darwin: 'cloudquery_darwin_x86_64',
