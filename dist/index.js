@@ -13581,8 +13581,8 @@ const installBinary = async (version) => {
         stdout: 'inherit',
     });
     await execaCommand('chmod +x cloudquery');
-    core.info(external_path_default().resolve('./cloudquery'));
-    core.info("debugging");
+    core.debug(external_path_default().resolve('./cloudquery'));
+    core.debug("debugging");
     core.addPath(external_path_default().resolve('./cloudquery'));
     spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };
