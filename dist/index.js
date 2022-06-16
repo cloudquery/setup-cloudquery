@@ -13573,7 +13573,7 @@ const installBinary = async (version) => {
     }
     const isLatest = version === 'latest';
     const message = isLatest ? `${source.green('latest')} version` : `version '${source.green(version)}'`;
-    const spinner = ora(`Downloading ${message} of CloudQuery`).start();
+    const spinner = ora(`test Downloading ${message} of CloudQuery`).start();
     const downloadUrl = isLatest
         ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
         : `https://github.com/cloudquery/cloudquery/releases/download/${version}/${binary}`;
