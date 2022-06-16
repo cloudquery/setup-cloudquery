@@ -4,6 +4,7 @@ import { platform } from 'os';
 import { execaCommand } from 'execa';
 import ora from 'ora';
 import semver from 'semver';
+import path from 'path'
 
 const binaries = {
   darwin: 'cloudquery_darwin_x86_64',
@@ -26,7 +27,7 @@ export const installBinary = async (version: string) => {
     stdout: 'inherit',
   });
   await execaCommand('chmod +x cloudquery');
-  core.addPath('./cloudquery');
+  core.addPath(path.resolve('./cloudquery'));
   spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };
 

@@ -13550,7 +13550,11 @@ async function oraPromise(action, options) {
 // EXTERNAL MODULE: ./node_modules/semver/index.js
 var semver = __nccwpck_require__(1383);
 var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
+// EXTERNAL MODULE: external "path"
+var external_path_ = __nccwpck_require__(1017);
+var external_path_default = /*#__PURE__*/__nccwpck_require__.n(external_path_);
 ;// CONCATENATED MODULE: ./src/main.ts
+
 
 
 
@@ -13577,7 +13581,7 @@ const installBinary = async (version) => {
         stdout: 'inherit',
     });
     await execaCommand('chmod +x cloudquery');
-    core.addPath("./cloudquery");
+    core.addPath(external_path_default().resolve('./cloudquery'));
     spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };
 async function main_main() {
