@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* Add branding ([#19](https://github.com/cloudquery/setup-cloudquery/issues/19)) ([3a009ef](https://github.com/cloudquery/setup-cloudquery/commit/3a009efdfd29feb20e286aa0b991f92750de768b))
+
 ## 1.0.0 (2022-06-16)
 
 
