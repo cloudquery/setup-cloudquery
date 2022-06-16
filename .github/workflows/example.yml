@@ -47,7 +47,7 @@ jobs:
           aws-region: us-east-1
       - name: Setup CloudQuery
         uses: ./.
-      - name: Fetch
+      - name: Fetch with CloudQuery
         run: cloudquery fetch --config example_configs/config-1.hcl
       - uses: actions/upload-artifact@v3
         if: always()
