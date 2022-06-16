@@ -1,8 +1,11 @@
 # setup-cloudquery
 
+A GitHub action to download the CloudQuery CLI so it can be used in other steps.
+
 ## Prerequisites
 
-A CloudQuery configuration file present in the repository the action will be triggered from.
+* We only support Linux or MacOS runners. Contributions welcomed to add Windows support 🪟
+* A CloudQuery configuration file present in the repository the action will be triggered from.
 
 > Visit [our getting started guide](https://docs.cloudquery.io/docs/getting-started/getting-started-with-aws/) to learn how to generate a configuration file.
 
@@ -40,7 +43,7 @@ jobs:
           version: latest
 
       - name: Fetch with CloudQuery
-        run: cloudquery fetch --config config.hcl -v
+        run: cloudquery fetch --config config.hcl
 
       # Upload logs as a GitHub actions artifact
       - uses: actions/upload-artifact@v3
