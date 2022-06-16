@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.1...v1.1.0) (2022-06-16)
+
+
+### Features
+
+* Action should only Download CloudQuery ([#13](https://github.com/cloudquery/setup-cloudquery/issues/13)) ([1b916fe](https://github.com/cloudquery/setup-cloudquery/commit/1b916feedab150fd0a061ee2d3e4be471791f59f))
+
 ### [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-05-30)
 
 
