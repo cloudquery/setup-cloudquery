@@ -9,6 +9,7 @@ on:
 
 env:
   CQ_NO_TELEMETRY: '1'
+  ACTIONS_RUNNER_DEBUG: true
 jobs:
   cloudquery-fetch:
     permissions:
