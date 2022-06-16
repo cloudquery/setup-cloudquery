@@ -13563,7 +13563,6 @@ var external_path_default = /*#__PURE__*/__nccwpck_require__.n(external_path_);
 
 const binaries = {
     darwin: 'cloudquery_darwin_x86_64',
-    win32: 'cloudquery_windows_x86_64.exe',
     linux: 'cloudquery_linux_x86_64',
 };
 const installBinary = async (version) => {
@@ -13573,7 +13572,7 @@ const installBinary = async (version) => {
     }
     const isLatest = version === 'latest';
     const message = isLatest ? `${source.green('latest')} version` : `version '${source.green(version)}'`;
-    const spinner = ora(`test Downloading ${message} of CloudQuery`).start();
+    const spinner = ora(`Downloading ${message} of CloudQuery`).start();
     const downloadUrl = isLatest
         ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
         : `https://github.com/cloudquery/cloudquery/releases/download/${version}/${binary}`;
@@ -13581,8 +13580,6 @@ const installBinary = async (version) => {
         stdout: 'inherit',
     });
     await execaCommand('chmod +x cloudquery');
-    core.debug(external_path_default().resolve('./'));
-    core.info('debugging');
     core.addPath(external_path_default().resolve('./'));
     spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };
