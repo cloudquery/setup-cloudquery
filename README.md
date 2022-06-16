@@ -1,4 +1,4 @@
-# setup-cloudquery-action
+# setup-cloudquery
 
 ## Prerequisites
 
@@ -23,6 +23,9 @@ jobs:
   cloudquery:
     runs-on: ubuntu-latest
     steps:
+      # Download the repository content with the `config.hcl` file
+      - uses: actions/checkout@v3
+
       # Setup AWS credentials (example)
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -31,13 +34,18 @@ jobs:
           aws-region: <region>
 
       - uses: cloudquery/setup-cloudquery@v1
+        name: Setup CloudQuery
         with:
-          # optional, Path to CloudQuery config file. Defaults to `config.hcl`
-          config_path: 'config.hcl'
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
           version: latest
-          # additional_flags, defaults to an empty string. Additional flags to pass to CloudQuery CLI
-          additional_flags: ''
-```
 
-For a complete example on how to use this action to parallelize CloudQuery across multiple machines, see [here](./.github/workflows/example.yml#L22)
+      - name: Fetch with CloudQuery
+        run: cloudquery fetch --config config.hcl -v
+
+      # Upload logs as a GitHub actions artifact
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: 'cloudquery.log'
+          path: 'cloudquery.log'
+```
