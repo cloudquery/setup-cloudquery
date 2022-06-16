@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2022-06-16)
+
+
+### Features
+
+* Initial commit ([b848e46](https://github.com/cloudquery/setup-cloudquery/commit/b848e465c186221aad147f96af66adaffc019a9e))
+
 ### [1.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.0...v1.0.1) (2022-05-30)
 
 
