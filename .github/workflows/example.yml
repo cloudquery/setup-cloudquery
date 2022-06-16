@@ -9,6 +9,8 @@ on:
 
 env:
   CQ_NO_TELEMETRY: '1'
+  ACTIONS_RUNNER_DEBUG: true
+  ACTIONS_STEP_DEBUG: true
 jobs:
   cloudquery-fetch:
     permissions:
@@ -19,8 +21,6 @@ jobs:
       matrix:
         dbversion: ['postgres:latest']
         os: [ubuntu-latest]
-        # Each config has a different set of resources
-        config: ['config-1', 'config-2', 'config-3', 'config-4', 'config-5', 'config-6']
       fail-fast: false
     services:
       postgres:
@@ -47,11 +47,10 @@ jobs:
           aws-region: us-east-1
       - name: Setup CloudQuery
         uses: ./.
-        with:
-          config_path: 'example_configs/${{ matrix.config }}.hcl'
-          additional_flags: '-v'
+      - name: Fetch with CloudQuery
+        run: cloudquery fetch --config example_configs/config-1.hcl
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: 'cloudquery-${{ matrix.config }}.log'
+          name: 'cloudquery-config-1.log'
           path: 'cloudquery.log'

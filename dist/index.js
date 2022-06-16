@@ -10972,6 +10972,11 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 
+// EXPORTS
+__nccwpck_require__.d(__webpack_exports__, {
+  "B": () => (/* binding */ installBinary)
+});
+
 // EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
 var core = __nccwpck_require__(2186);
 ;// CONCATENATED MODULE: ./node_modules/chalk/source/vendor/ansi-styles/index.js
@@ -11614,105 +11619,6 @@ const chalkStderr = createChalk({level: stderrColor ? stderrColor.level : 0});
 
 
 /* harmony default export */ const source = (chalk);
-
-// EXTERNAL MODULE: ./node_modules/semver/index.js
-var semver = __nccwpck_require__(1383);
-var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
-;// CONCATENATED MODULE: external "node:fs"
-const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
-;// CONCATENATED MODULE: ./node_modules/path-exists/index.js
-
-
-async function pathExists(path) {
-	try {
-		await external_node_fs_namespaceObject.promises.access(path);
-		return true;
-	} catch {
-		return false;
-	}
-}
-
-function pathExistsSync(path) {
-	try {
-		fs.accessSync(path);
-		return true;
-	} catch {
-		return false;
-	}
-}
-
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __nccwpck_require__(7147);
-;// CONCATENATED MODULE: ./node_modules/path-type/index.js
-
-
-async function isType(fsStatType, statsMethodName, filePath) {
-	if (typeof filePath !== 'string') {
-		throw new TypeError(`Expected a string, got ${typeof filePath}`);
-	}
-
-	try {
-		const stats = await external_fs_.promises[fsStatType](filePath);
-		return stats[statsMethodName]();
-	} catch (error) {
-		if (error.code === 'ENOENT') {
-			return false;
-		}
-
-		throw error;
-	}
-}
-
-function isTypeSync(fsStatType, statsMethodName, filePath) {
-	if (typeof filePath !== 'string') {
-		throw new TypeError(`Expected a string, got ${typeof filePath}`);
-	}
-
-	try {
-		return external_fs_[fsStatType](filePath)[statsMethodName]();
-	} catch (error) {
-		if (error.code === 'ENOENT') {
-			return false;
-		}
-
-		throw error;
-	}
-}
-
-const isFile = isType.bind(null, 'stat', 'isFile');
-const isDirectory = isType.bind(null, 'stat', 'isDirectory');
-const isSymlink = isType.bind(null, 'lstat', 'isSymbolicLink');
-const isFileSync = isTypeSync.bind(null, 'statSync', 'isFile');
-const isDirectorySync = isTypeSync.bind(null, 'statSync', 'isDirectory');
-const isSymlinkSync = isTypeSync.bind(null, 'lstatSync', 'isSymbolicLink');
-
-;// CONCATENATED MODULE: ./src/config.ts
-
-
-
-
-const getConfig = async () => {
-    const version = core.getInput('version', { required: false });
-    if (version !== 'latest' && !semver_default().valid(version)) {
-        throw new Error(`Invalid version: ${version}`);
-    }
-    const [configPath, additionalFlags] = [
-        core.getInput('config_path', { required: false }) || 'config.hcl',
-        core.getInput('additional_flags', { required: false }) || '',
-    ];
-    const exists = await pathExists(configPath);
-    if (!exists) {
-        throw new Error(`Config file does not exist: ${configPath}`);
-    }
-    const file = await isFile(configPath);
-    if (!file) {
-        throw new Error(`Path to config must be a valid file: ${configPath}`);
-    }
-    return {
-        version,
-        additionalFlags: `--config ${configPath} ${additionalFlags}`,
-    };
-};
 
 // EXTERNAL MODULE: external "os"
 var external_os_ = __nccwpck_require__(2037);
@@ -13641,14 +13547,22 @@ async function oraPromise(action, options) {
 	}
 }
 
-;// CONCATENATED MODULE: ./src/install.ts
+// EXTERNAL MODULE: ./node_modules/semver/index.js
+var semver = __nccwpck_require__(1383);
+var semver_default = /*#__PURE__*/__nccwpck_require__.n(semver);
+// EXTERNAL MODULE: external "path"
+var external_path_ = __nccwpck_require__(1017);
+var external_path_default = /*#__PURE__*/__nccwpck_require__.n(external_path_);
+;// CONCATENATED MODULE: ./src/main.ts
+
+
+
 
 
 
 
 const binaries = {
     darwin: 'cloudquery_darwin_x86_64',
-    win32: 'cloudquery_windows_x86_64.exe',
     linux: 'cloudquery_linux_x86_64',
 };
 const installBinary = async (version) => {
@@ -13666,33 +13580,16 @@ const installBinary = async (version) => {
         stdout: 'inherit',
     });
     await execaCommand('chmod +x cloudquery');
+    core.addPath(external_path_default().resolve('./'));
     spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };
-
-;// CONCATENATED MODULE: ./src/cloudquery.ts
-
-
-const fetch = async (additionalFlags) => {
-    core.info(`Running fetch`);
-    await execaCommand(`./cloudquery fetch ${additionalFlags}`, {
-        stdout: 'inherit',
-    });
-    core.info(`Fetch completed`);
-};
-
-;// CONCATENATED MODULE: ./src/main.ts
-
-
-
-
-
 async function main_main() {
     try {
-        core.info('Extracting inputs');
-        const { version, additionalFlags } = await getConfig();
-        core.info(`Installing version ${source.magenta(version)}`);
+        const version = core.getInput('version', { required: false });
+        if (version !== 'latest' && !semver_default().valid(version)) {
+            throw new Error(`Invalid version: ${version}`);
+        }
         await installBinary(version);
-        return await fetch(additionalFlags);
     }
     catch (err) {
         const error = err;
@@ -13704,3 +13601,5 @@ main_main();
 
 })();
 
+var __webpack_exports__installBinary = __webpack_exports__.B;
+export { __webpack_exports__installBinary as installBinary };
