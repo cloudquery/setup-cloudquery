@@ -22,6 +22,6 @@ You can either use `npm run start` to start the `main.ts` file, or use the [act]
 
 We use [prettier](https://prettier.io/) and [eslint](https://eslint.org/) to format and lint our code.
 Before submitting a PR please run `npm run format` and `npm run lint` to ensure your code matches our style.
-Once you submit a PR, a bunch of CI tests will run on your PR and ensure existing functionally works as expected.
+Once you submit a PR, a bunch of CI tests will run on it PR and ensure existing functionally works as expected.
 
 >It's always recommended to [open an issue](https://github.com/cloudquery/setup-cloudquery/issues/new/choose) first to discuss changes, to ensure PRs are reviewed, merged and shipped as fast as possible.
