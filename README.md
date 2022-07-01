@@ -26,7 +26,7 @@ jobs:
   cloudquery:
     runs-on: ubuntu-latest
     steps:
-      # Download the repository content with the `config.hcl` file
+      # Download the repository content with the `cloudquery.yml` file
       - uses: actions/checkout@v3
 
       # Setup AWS credentials (example)
@@ -43,7 +43,7 @@ jobs:
           version: latest
 
       - name: Fetch with CloudQuery
-        run: cloudquery fetch --config config.hcl
+        run: cloudquery fetch --config cloudquery.yml
 
       # Upload logs as a GitHub actions artifact
       - uses: actions/upload-artifact@v3
