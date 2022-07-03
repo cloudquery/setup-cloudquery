@@ -31,6 +31,7 @@ Once you submit a PR, a bunch of CI tests will run on it PR and ensure existing 
 To release a new version simply merge the release PR (visit [this PR for an example](https://github.com/cloudquery/setup-cloudquery/pull/43)).
 Once the release PR is merged a new tag and release will be created automatically.
 Once the release is created you'll need to manually publish it to the GitHub Actions Marketplace by editing the release.
+
 For example [follow this link to edit v1.0.4](https://github.com/cloudquery/setup-cloudquery/releases/edit/v1.0.4):
 ![image](https://user-images.githubusercontent.com/26760571/177048045-53f4191d-b5a8-4168-a8b0-cb7612abbcb4.png)
 
