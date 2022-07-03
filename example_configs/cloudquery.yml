@@ -1,0 +1,37 @@
+cloudquery:
+  providers:
+    - name: aws
+      version: latest
+  connection:
+    username: 'postgres'
+    password: 'pass'
+    host: 'localhost'
+    port: 5432
+    database: 'postgres'
+    sslmode: 'disable'
+
+providers:
+  - name: aws
+    resources:
+      - 'accessanalyzer.analyzers'
+      - 'acm.certificates'
+      - 'apigateway.api_keys'
+      - 'apigateway.client_certificates'
+      - 'apigateway.domain_names'
+      - 'apigateway.rest_apis'
+      - 'apigateway.usage_plans'
+      - 'apigateway.vpc_links'
+      - 'apigatewayv2.apis'
+      - 'apigatewayv2.domain_names'
+      - 'apigatewayv2.vpc_links'
+      - 'applicationautoscaling.policies'
+      - 'athena.data_catalogs'
+      - 'athena.work_groups'
+      - 'autoscaling.groups'
+      - 'autoscaling.launch_configurations'
+      - 'autoscaling.scheduled_actions'
+      - 'aws.regions'
+      - 'backup.global_settings'
+      - 'backup.plans'
+      - 'backup.region_settings'
+      - 'backup.vaults'

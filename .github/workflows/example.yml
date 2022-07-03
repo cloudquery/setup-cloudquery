@@ -48,7 +48,7 @@ jobs:
       - name: Setup CloudQuery
         uses: ./.
       - name: Fetch with CloudQuery
-        run: cloudquery fetch --config example_configs/config-1.hcl
+        run: cloudquery fetch --config example_configs/cloudquery.yml
       - uses: actions/upload-artifact@v3
         if: always()
         with:
