@@ -26,7 +26,7 @@ jobs:
   cloudquery:
     runs-on: ubuntu-latest
     steps:
-      # Check out a git repository with a pre-existing `cloudquery.yml` configuration file
+      # Checkout a git repository with a pre-existing `cloudquery.yml` configuration file
       - uses: actions/checkout@v3
 
       # Setup AWS credentials (example)
