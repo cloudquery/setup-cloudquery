@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.6](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.5...v1.0.6) (2022-08-16)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency eslint to v8.21.0 ([#48](https://github.com/cloudquery/setup-cloudquery/issues/48)) ([858edf7](https://github.com/cloudquery/setup-cloudquery/commit/858edf787f7c7ccb22ee2ee0c69102e4e26b90fe))
+* **deps:** Update typescript-eslint monorepo to v5.30.6 ([#47](https://github.com/cloudquery/setup-cloudquery/issues/47)) ([0f38019](https://github.com/cloudquery/setup-cloudquery/commit/0f3801968a36abaf793ae81b7650fd79c5057673))
+* **deps:** Update typescript-eslint monorepo to v5.30.7 ([#50](https://github.com/cloudquery/setup-cloudquery/issues/50)) ([39cf2e9](https://github.com/cloudquery/setup-cloudquery/commit/39cf2e9b3035e1300887b4e874a847ab0e0bef38))
+* **deps:** Update typescript-eslint monorepo to v5.32.0 ([#51](https://github.com/cloudquery/setup-cloudquery/issues/51)) ([42abd2d](https://github.com/cloudquery/setup-cloudquery/commit/42abd2d63ca811001c48c2163ba91f8cc4962d2a))
+* Use CLI version from monorepo ([#52](https://github.com/cloudquery/setup-cloudquery/issues/52)) ([302a327](https://github.com/cloudquery/setup-cloudquery/commit/302a327ffb2b05045b797cd5e6c4b1cc3b899216))
+
 ## [1.0.5](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.4...v1.0.5) (2022-07-11)
 
 
