@@ -25,12 +25,10 @@
   "homepage": "https://github.com/cloudquery/setup-cloudquery#readme",
   "dependencies": {
     "@actions/core": "1.9.0",
-    "@actions/github": "5.0.3",
     "chalk": "5.0.1",
     "execa": "6.1.0",
+    "got": "^12.3.1",
     "ora": "6.1.2",
-    "path-exists": "5.0.0",
-    "path-type": "5.0.0",
     "semver": "7.3.7"
   },
   "engines": {

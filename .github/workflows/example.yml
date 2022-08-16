@@ -20,6 +20,7 @@ jobs:
     strategy:
       matrix:
         dbversion: ['postgres:latest']
+        cloudquery-version: ['latest', '0.32.7', 'v0.32.7']
         os: [ubuntu-latest]
       fail-fast: false
     services:
@@ -46,11 +47,16 @@ jobs:
           role-to-assume: arn:aws:iam::615713231484:role/cq-playground-aws-github-action
           aws-region: us-east-1
       - name: Setup CloudQuery
+        if: matrix.cloudquery-version == 'latest'
         uses: ./.
+      - name: Setup CloudQuery
+        if: matrix.cloudquery-version != 'latest'
+        uses: ./.
+        with:
+          version: ${{matrix.cloudquery-version}}
       - name: Fetch with CloudQuery
         run: cloudquery fetch --config example_configs/cloudquery.yml
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: 'cloudquery-config-1.log'
           path: 'cloudquery.log'

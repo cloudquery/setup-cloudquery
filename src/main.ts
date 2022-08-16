@@ -5,10 +5,25 @@ import { execaCommand } from 'execa';
 import ora from 'ora';
 import semver from 'semver';
 import path from 'path';
+import got from 'got';
 
 const binaries = {
   darwin: 'cloudquery_darwin_x86_64',
   linux: 'cloudquery_linux_x86_64',
+};
+
+const resolveLatestVersionTag = async () => {
+  const manifest: { latest: string } = await got('https://versions.cloudquery.io/v1/cli.json').json();
+  return manifest.latest;
+};
+
+const resolveDownloadUrl = async (version: string, binary: string) => {
+  if (version === 'latest') {
+    const latestTag = await resolveLatestVersionTag();
+    return `https://github.com/cloudquery/cloudquery/releases/download/${latestTag}/${binary}`;
+  }
+  const tag = version.startsWith('v') ? `cli/${version}` : `cli/v${version}`;
+  return `https://github.com/cloudquery/cloudquery/releases/download/${tag}/${binary}`;
 };
 
 export const installBinary = async (version: string) => {
@@ -19,9 +34,7 @@ export const installBinary = async (version: string) => {
   const isLatest = version === 'latest';
   const message = isLatest ? `${chalk.green('latest')} version` : `version '${chalk.green(version)}'`;
   const spinner = ora(`Downloading ${message} of CloudQuery`).start();
-  const downloadUrl = isLatest
-    ? `https://github.com/cloudquery/cloudquery/releases/${version}/download/${binary}`
-    : `https://github.com/cloudquery/cloudquery/releases/download/${version}/${binary}`;
+  const downloadUrl = await resolveDownloadUrl(version, binary);
   await execaCommand(`curl -L ${downloadUrl} -o cloudquery`, {
     stdout: 'inherit',
   });
