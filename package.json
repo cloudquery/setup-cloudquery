@@ -1,6 +1,6 @@
 {
   "name": "@cloudquery/setup-cloudquery",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Setup CloudQuery CLI in a GitHub action environment",
   "main": "dist/index.js",
   "type": "module",

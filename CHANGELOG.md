@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.7](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.6...v1.0.7) (2022-09-01)
+
+
+### Bug Fixes
+
+* **deps:** Pin dependency got to 12.3.1 ([#53](https://github.com/cloudquery/setup-cloudquery/issues/53)) ([83cd084](https://github.com/cloudquery/setup-cloudquery/commit/83cd0845662cafe53e14be9251d35b62bf971a6a))
+* **deps:** Update dependency @actions/core to v1.9.1 ([#54](https://github.com/cloudquery/setup-cloudquery/issues/54)) ([6281582](https://github.com/cloudquery/setup-cloudquery/commit/628158219fc7d1c92387e897586208016e7e63ad))
+* **deps:** Update dependency @types/semver to v7.3.12 ([#55](https://github.com/cloudquery/setup-cloudquery/issues/55)) ([355cf3c](https://github.com/cloudquery/setup-cloudquery/commit/355cf3c11b5bdd0d4b0cd8b4a9b6d5b591559f69))
+* **deps:** Update dependency typescript to v4.8.2 ([#58](https://github.com/cloudquery/setup-cloudquery/issues/58)) ([15106a6](https://github.com/cloudquery/setup-cloudquery/commit/15106a679e738900864333f401b3dea0036170d2))
+
 ## [1.0.6](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.5...v1.0.6) (2022-08-16)
 
 
