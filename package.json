@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/cloudquery/setup-cloudquery#readme",
   "dependencies": {
-    "@actions/core": "1.9.0",
+    "@actions/core": "1.9.1",
     "chalk": "5.0.1",
     "execa": "6.1.0",
     "got": "12.3.1",
