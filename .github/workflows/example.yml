@@ -8,11 +8,10 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  CQ_NO_TELEMETRY: '1'
   ACTIONS_RUNNER_DEBUG: true
   ACTIONS_STEP_DEBUG: true
 jobs:
-  cloudquery-fetch:
+  cloudquery-sync:
     permissions:
       id-token: write
       contents: read
@@ -20,7 +19,7 @@ jobs:
     strategy:
       matrix:
         dbversion: ['postgres:latest']
-        cloudquery-version: ['latest', '0.32.7', 'v0.32.7']
+        cloudquery-version: ['latest', '1.0.6', 'v1.0.6']
         os: [ubuntu-latest]
       fail-fast: false
     services:
@@ -54,8 +53,8 @@ jobs:
         uses: ./.
         with:
           version: ${{matrix.cloudquery-version}}
-      - name: Fetch with CloudQuery
-        run: cloudquery fetch --config example_configs/cloudquery.yml
+      - name: Sync with CloudQuery
+        run: cloudquery sync example_configs
       - uses: actions/upload-artifact@v3
         if: always()
         with:

@@ -1,0 +1,5 @@
+kind: source
+spec:
+  name: 'aws'
+  version: 'v2.0.1'
+  destinations: ['postgresql']
