@@ -4,8 +4,8 @@ A GitHub action to download the CloudQuery CLI so it can be used in other steps.
 
 ## Prerequisites
 
-* We only support Linux or MacOS runners. Contributions welcomed to add Windows support 🪟
-* A CloudQuery configuration file present in the repository the action will be triggered from.
+- We only support Linux or MacOS runners. Contributions welcomed to add Windows support 🪟
+- CloudQuery source and destination configuration files. See [CloudQuery docs](https://www.cloudquery.io/docs/quickstart) for more information.
 
 > Visit [our getting started guide](https://docs.cloudquery.io/docs/getting-started/getting-started-with-aws/) to learn how to generate a configuration file.
 
@@ -36,14 +36,14 @@ jobs:
           role-to-assume: <role-arn>
           aws-region: <region>
 
-      - uses: cloudquery/setup-cloudquery@v1
+      - uses: cloudquery/setup-cloudquery@v2
         name: Setup CloudQuery
         with:
-          # optional, defaults to latest. Must be a valid SemVer version (e.g. v0.22.9) or latest
+          # optional, defaults to latest. Must be a valid SemVer version (e.g. v1.0.0) or latest
           version: latest
 
       - name: Fetch with CloudQuery
-        run: cloudquery fetch --config cloudquery.yml
+        run: cloudquery sync [file or directories...]
 
       # Upload logs as a GitHub actions artifact
       - uses: actions/upload-artifact@v3
