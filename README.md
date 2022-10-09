@@ -42,7 +42,7 @@ jobs:
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v1.0.0) or latest
           version: latest
 
-      - name: Fetch with CloudQuery
+      - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...]
 
       # Upload logs as a GitHub actions artifact
