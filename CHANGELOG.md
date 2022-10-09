@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.8...v2.0.0) (2022-10-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* Use CloudQuery v1 (#69)
+
+### Features
+
+* Use CloudQuery v1 ([#69](https://github.com/cloudquery/setup-cloudquery/issues/69)) ([b24aea8](https://github.com/cloudquery/setup-cloudquery/commit/b24aea8193f8057513f423652308d52a76696122))
+
 ## [1.0.8](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.7...v1.0.8) (2022-10-02)
 
 
