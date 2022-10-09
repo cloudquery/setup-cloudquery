@@ -7,8 +7,6 @@ A GitHub action to download the CloudQuery CLI so it can be used in other steps.
 - We only support Linux or MacOS runners. Contributions welcomed to add Windows support 🪟
 - CloudQuery source and destination configuration files. See [CloudQuery docs](https://www.cloudquery.io/docs/quickstart) for more information.
 
-> Visit [our getting started guide](https://docs.cloudquery.io/docs/getting-started/getting-started-with-aws/) to learn how to generate a configuration file.
-
 ## Setup
 
 Example usage:
@@ -26,7 +24,7 @@ jobs:
   cloudquery:
     runs-on: ubuntu-latest
     steps:
-      # Checkout a git repository with a pre-existing `cloudquery.yml` configuration file
+      # Checkout a git repository with a pre-existing CloudQuery configuration files
       - uses: actions/checkout@v3
 
       # Setup AWS credentials (example)
@@ -42,7 +40,7 @@ jobs:
           # optional, defaults to latest. Must be a valid SemVer version (e.g. v1.0.0) or latest
           version: latest
 
-      - name: Fetch with CloudQuery
+      - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...]
 
       # Upload logs as a GitHub actions artifact
