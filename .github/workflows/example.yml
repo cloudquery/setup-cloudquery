@@ -53,7 +53,7 @@ jobs:
         uses: ./.
         with:
           version: ${{matrix.cloudquery-version}}
-      - name: Fetch with CloudQuery
+      - name: Sync with CloudQuery
         run: cloudquery sync example_configs
       - uses: actions/upload-artifact@v3
         if: always()
