@@ -13,7 +13,7 @@ const binaries = {
 
 const resolveDownloadUrl = async (version: string, binary: string) => {
   if (version === 'latest') {
-    return `https://versions.cloudquery.io/latest/v1/${binary}`;
+    return `https://versions.cloudquery.io/latest/v2/${binary}`;
   }
   const tag = version.startsWith('v') ? `cli-${version}` : `cli-v${version}`;
   return `https://github.com/cloudquery/cloudquery/releases/download/${tag}/${binary}`;
