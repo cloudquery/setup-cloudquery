@@ -7,8 +7,8 @@ import semver from 'semver';
 import path from 'path';
 
 const binaries = {
-  darwin: 'cloudquery_darwin_x86_64',
-  linux: 'cloudquery_linux_x86_64',
+  darwin: 'cloudquery_darwin_amd64',
+  linux: 'cloudquery_linux_amd64',
 };
 
 const resolveDownloadUrl = async (version: string, binary: string) => {
