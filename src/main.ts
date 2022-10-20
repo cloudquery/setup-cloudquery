@@ -7,13 +7,13 @@ import semver from 'semver';
 import path from 'path';
 
 const binaries = {
-  darwin: 'cloudquery_darwin_x86_64',
-  linux: 'cloudquery_linux_x86_64',
+  darwin: 'cloudquery_darwin_amd64',
+  linux: 'cloudquery_linux_amd64',
 };
 
 const resolveDownloadUrl = async (version: string, binary: string) => {
   if (version === 'latest') {
-    return `https://versions.cloudquery.io/latest/v1/${binary}`;
+    return `https://versions.cloudquery.io/latest/v2/${binary}`;
   }
   const tag = version.startsWith('v') ? `cli-${version}` : `cli-v${version}`;
   return `https://github.com/cloudquery/cloudquery/releases/download/${tag}/${binary}`;
