@@ -14294,12 +14294,12 @@ var external_path_default = /*#__PURE__*/__nccwpck_require__.n(external_path_);
 
 
 const binaries = {
-    darwin: 'cloudquery_darwin_x86_64',
-    linux: 'cloudquery_linux_x86_64',
+    darwin: 'cloudquery_darwin_amd64',
+    linux: 'cloudquery_linux_amd64',
 };
 const resolveDownloadUrl = async (version, binary) => {
     if (version === 'latest') {
-        return `https://versions.cloudquery.io/latest/v1/${binary}`;
+        return `https://versions.cloudquery.io/latest/v2/${binary}`;
     }
     const tag = version.startsWith('v') ? `cli-${version}` : `cli-v${version}`;
     return `https://github.com/cloudquery/cloudquery/releases/download/${tag}/${binary}`;
