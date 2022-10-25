@@ -41,12 +41,5 @@ jobs:
           version: latest
 
       - name: Sync with CloudQuery
-        run: cloudquery sync [file or directories...]
-
-      # Upload logs as a GitHub actions artifact
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: 'cloudquery.log'
-          path: 'cloudquery.log'
+        run: cloudquery sync [file or directories...] --log-console
 ```
