@@ -48,8 +48,3 @@ jobs:
         run: cloudquery sync example_configs/parallel.yml --log-console
         env:
           CQ_DSN: postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable
-      - uses: actions/upload-artifact@v3 # Upload logs as a GitHub actions artifact
-        if: always()
-        with:
-          name: 'cloudquery.log'
-          path: 'cloudquery-${{ matrix.region }}.log'
