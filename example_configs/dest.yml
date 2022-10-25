@@ -1,7 +1,0 @@
-kind: destination
-spec:
-  name: 'postgresql'
-  version: "v1.3.3" # latest version of postgresql plugin
-  write_mode: 'overwrite'
-  spec:
-    connection_string: 'postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable'

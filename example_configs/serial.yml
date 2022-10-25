@@ -1,0 +1,12 @@
+kind: source
+spec:
+  name: 'aws'
+  version: 'v3.4.2' # latest version of aws plugin
+  destinations: ['postgresql']
+---
+kind: destination
+spec:
+  name: 'postgresql'
+  version: 'v1.3.3' # latest version of postgresql plugin
+  spec:
+    connection_string: 'postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable'
