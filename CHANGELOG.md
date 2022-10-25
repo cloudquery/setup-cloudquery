@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.0...v2.0.1) (2022-10-20)
+
+
+### Bug Fixes
+
+* Update to use new CLI binary names ([#71](https://github.com/cloudquery/setup-cloudquery/issues/71)) ([af927fe](https://github.com/cloudquery/setup-cloudquery/commit/af927fe428033bf187208b036e6c2c9dbcede6cb))
+
 ## [2.0.0](https://github.com/cloudquery/setup-cloudquery/compare/v1.0.8...v2.0.0) (2022-10-09)
 
 
