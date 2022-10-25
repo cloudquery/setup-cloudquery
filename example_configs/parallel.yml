@@ -1,0 +1,17 @@
+kind: source
+spec:
+  name: 'aws'
+  path: cloudquery/aws
+  version: 'v3.4.2' # latest version of aws plugin
+  destinations: ['postgresql']
+  spec:
+    regions:
+      - REGION_PLACEHOLDER # This will be replaced by the GitHub Action matrix value
+---
+kind: destination
+spec:
+  name: 'postgresql'
+  path: cloudquery/postgresql
+  version: 'v1.3.3' # latest version of postgresql plugin
+  spec:
+    connection_string: ${CQ_DSN} # The CQ_DSN environment variable will be set by GitHub Action workflow

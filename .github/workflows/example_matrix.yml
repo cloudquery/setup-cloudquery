@@ -1,0 +1,55 @@
+name: CloudQuery Parallel
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  cloudquery:
+    permissions:
+      id-token: write
+      contents: read
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        region: [us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2] # List of regions to sync in parallel
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: pass
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3 # Checkout the code so we have access to the config file
+      - name: Set region in config file
+        uses: jacobtomlinson/gha-find-replace@657b0d1fe020da9943d1702b576f5d37d43b9c03
+        with:
+          include: example_configs/parallel.yml
+          find: REGION_PLACEHOLDER
+          replace: ${{ matrix.region }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::615713231484:role/cq-playground-aws-github-action
+          aws-region: us-east-1
+      - uses: cloudquery/setup-cloudquery@v2
+        name: Setup CloudQuery
+      - name: Sync with CloudQuery
+        run: cloudquery sync example_configs/parallel.yml --log-console
+        env:
+          CQ_DSN: postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable
+      - uses: actions/upload-artifact@v3 # Upload logs as a GitHub actions artifact
+        if: always()
+        with:
+          name: 'cloudquery.log'
+          path: 'cloudquery-${{ matrix.region }}.log'

@@ -54,7 +54,7 @@ jobs:
         with:
           version: ${{matrix.cloudquery-version}}
       - name: Sync with CloudQuery
-        run: cloudquery sync example_configs
+        run: cloudquery sync example_configs/serial.yml --log-console
       - uses: actions/upload-artifact@v3
         if: always()
         with:
