@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.2](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.1...v2.0.2) (2022-11-02)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v17.2.0 ([#77](https://github.com/cloudquery/setup-cloudquery/issues/77)) ([239cb69](https://github.com/cloudquery/setup-cloudquery/commit/239cb698041990d19999740df7e5549ea65ecceb))
+* **deps:** Update dependency @types/node to v18 ([#81](https://github.com/cloudquery/setup-cloudquery/issues/81)) ([a1fb652](https://github.com/cloudquery/setup-cloudquery/commit/a1fb652fe35cb3bb0561686aed2c885310f9a24e))
+* **deps:** Update dependency chalk to v5.1.2 ([#78](https://github.com/cloudquery/setup-cloudquery/issues/78)) ([c1677e4](https://github.com/cloudquery/setup-cloudquery/commit/c1677e4058a6ada3d33f1e8c345a5c30450ba614))
+* **deps:** Update dependency eslint to v8.26.0 ([#79](https://github.com/cloudquery/setup-cloudquery/issues/79)) ([bd0c42f](https://github.com/cloudquery/setup-cloudquery/commit/bd0c42ff064e380f401dfe49661d2481fbbb5bae))
+* **deps:** Update dependency semver to v7.3.8 ([#76](https://github.com/cloudquery/setup-cloudquery/issues/76)) ([b4bb121](https://github.com/cloudquery/setup-cloudquery/commit/b4bb1218895065d57aa57f5f47d8caeef58bade0))
+* **deps:** Update typescript-eslint monorepo to v5.42.0 ([#80](https://github.com/cloudquery/setup-cloudquery/issues/80)) ([b0922ae](https://github.com/cloudquery/setup-cloudquery/commit/b0922ae5d3ab943fe10c5eb2bceca47d71b424a7))
+
 ## [2.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.0...v2.0.1) (2022-10-20)
 
 
