@@ -3,7 +3,7 @@ spec:
   name: 'aws-REGION_PLACEHOLDER'
   path: cloudquery/aws
   version: 'v3.4.2' # latest version of aws plugin
-  destinations: ['postgresql']
+  destinations: ['postgresql-REGION_PLACEHOLDER']
   spec:
     regions:
       - REGION_PLACEHOLDER # This will be replaced by the GitHub Action matrix value
