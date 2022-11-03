@@ -1,6 +1,6 @@
 kind: source
 spec:
-  name: 'aws'
+  name: 'aws-REGION_PLACEHOLDER'
   path: cloudquery/aws
   version: 'v3.4.2' # latest version of aws plugin
   destinations: ['postgresql']
@@ -10,7 +10,7 @@ spec:
 ---
 kind: destination
 spec:
-  name: 'postgresql'
+  name: 'postgresql-REGION_PLACEHOLDER'
   path: cloudquery/postgresql
   version: 'v1.3.3' # latest version of postgresql plugin
   spec:
