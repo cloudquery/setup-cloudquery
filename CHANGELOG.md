@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.7](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.6...v2.0.7) (2022-11-06)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency cloudquery/cloudquery to v4.6.0 ([#96](https://github.com/cloudquery/setup-cloudquery/issues/96)) ([8408a60](https://github.com/cloudquery/setup-cloudquery/commit/8408a6064813e7c238359c62d01383b70f2bb1dd))
+
 ## [2.0.6](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.5...v2.0.6) (2022-11-03)
 
 
