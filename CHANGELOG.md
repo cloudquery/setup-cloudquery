@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.10](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.9...v2.0.10) (2022-11-06)
+
+
+### Bug Fixes
+
+* **deps:** Update CloudQuery monorepo modules ([#105](https://github.com/cloudquery/setup-cloudquery/issues/105)) ([fef1401](https://github.com/cloudquery/setup-cloudquery/commit/fef14012ceb615d4a07ec004eb8626ab52497b1d))
+* **deps:** Update dependency cloudquery/cloudquery to v4.7.0 ([#102](https://github.com/cloudquery/setup-cloudquery/issues/102)) ([fb2b9b9](https://github.com/cloudquery/setup-cloudquery/commit/fb2b9b965d889499a475d2631138fdbfad9186c2))
+* **deps:** Update dependency cloudquery/cloudquery to v4.7.1 ([#104](https://github.com/cloudquery/setup-cloudquery/issues/104)) ([3ce4f6c](https://github.com/cloudquery/setup-cloudquery/commit/3ce4f6c10b0bfe9e15ed44a53ab17e63adb91a84))
+
 ## [2.0.9](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.8...v2.0.9) (2022-11-06)
 
 
