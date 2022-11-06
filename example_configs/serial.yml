@@ -1,7 +1,7 @@
 kind: source
 spec:
   name: 'aws'
-  version: 'v4.5.0' # latest version of aws plugin
+  version: 'v4.6.0' # latest version of aws plugin
   destinations: ['postgresql']
 ---
 kind: destination
