@@ -7,6 +7,6 @@ spec:
 kind: destination
 spec:
   name: 'postgresql'
-  version: 'v1.6.1' # latest version of postgresql plugin
+  version: 'v1.6.2' # latest version of postgresql plugin
   spec:
     connection_string: 'postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable'
