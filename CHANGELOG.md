@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.11](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.10...v2.0.11) (2022-11-07)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency cloudquery/cloudquery to v1.6.5 ([#106](https://github.com/cloudquery/setup-cloudquery/issues/106)) ([71f161a](https://github.com/cloudquery/setup-cloudquery/commit/71f161a5324829eff65cb11def5cd6967a0ad724))
+* **deps:** Update dependency cloudquery/cloudquery to v1.6.6 ([#110](https://github.com/cloudquery/setup-cloudquery/issues/110)) ([97c4d4c](https://github.com/cloudquery/setup-cloudquery/commit/97c4d4c27831e730a5bcd7bf2ca65a9939ad1141))
+* **deps:** Update dependency cloudquery/cloudquery to v4.7.3 ([#108](https://github.com/cloudquery/setup-cloudquery/issues/108)) ([d1b27d7](https://github.com/cloudquery/setup-cloudquery/commit/d1b27d74b39926c59555948aa3b348bd77179e82))
+* **deps:** Update dependency cloudquery/cloudquery to v4.7.4 ([#109](https://github.com/cloudquery/setup-cloudquery/issues/109)) ([e8640d5](https://github.com/cloudquery/setup-cloudquery/commit/e8640d57483a564209412801ff8cf9b615b3f4d1))
+* **deps:** Update dependency cloudquery/cloudquery to v4.7.5 ([#111](https://github.com/cloudquery/setup-cloudquery/issues/111)) ([e7b803a](https://github.com/cloudquery/setup-cloudquery/commit/e7b803a5d299ae007eda2a399cb72483ec6afaf5))
+
 ## [2.0.10](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.9...v2.0.10) (2022-11-06)
 
 
