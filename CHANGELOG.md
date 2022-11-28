@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.11...v3.0.0) (2022-11-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Make version required ([#144](https://github.com/cloudquery/setup-cloudquery/issues/144))
+
+### Features
+
+* Make version required ([#144](https://github.com/cloudquery/setup-cloudquery/issues/144)) ([daf2212](https://github.com/cloudquery/setup-cloudquery/commit/daf221279edd6476da82e58012bfacbe0b3e94a0))
+
 ## [2.0.11](https://github.com/cloudquery/setup-cloudquery/compare/v2.0.10...v2.0.11) (2022-11-07)
 
 
