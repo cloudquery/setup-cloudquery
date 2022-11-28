@@ -37,8 +37,8 @@ jobs:
       - uses: cloudquery/setup-cloudquery@v2
         name: Setup CloudQuery
         with:
-          # optional, defaults to latest. Must be a valid SemVer version (e.g. v1.0.0) or latest
-          version: latest
+          # Required. Must be a valid SemVer version
+          version: 'v2.0.21'
 
       - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...] --log-console

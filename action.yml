@@ -4,8 +4,7 @@ author: CloudQuery
 inputs:
   version:
     description: 'CloudQuery CLI version to install'
-    default: 'latest'
-    required: false
+    required: true
 runs:
   using: 'node16'
   main: 'dist/index.js'
