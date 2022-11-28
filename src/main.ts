@@ -12,9 +12,6 @@ const binaries = {
 };
 
 const resolveDownloadUrl = async (version: string, binary: string) => {
-  if (version === 'latest') {
-    return `https://versions.cloudquery.io/latest/v2/${binary}`;
-  }
   const tag = version.startsWith('v') ? `cli-${version}` : `cli-v${version}`;
   return `https://github.com/cloudquery/cloudquery/releases/download/${tag}/${binary}`;
 };
@@ -24,8 +21,7 @@ export const installBinary = async (version: string) => {
   if (!binary) {
     throw new Error(`Unsupported platform: ${platform()}`);
   }
-  const isLatest = version === 'latest';
-  const message = isLatest ? `${chalk.green('latest')} version` : `version '${chalk.green(version)}'`;
+  const message = `version '${chalk.green(version)}'`;
   const spinner = ora(`Downloading ${message} of CloudQuery`).start();
   const downloadUrl = await resolveDownloadUrl(version, binary);
   await execaCommand(`curl -L ${downloadUrl} -o cloudquery`, {
@@ -39,7 +35,7 @@ export const installBinary = async (version: string) => {
 async function main() {
   try {
     const version = core.getInput('version', { required: false });
-    if (version !== 'latest' && !semver.valid(version)) {
+    if (!semver.valid(version)) {
       throw new Error(`Invalid version: ${version}`);
     }
     await installBinary(version);

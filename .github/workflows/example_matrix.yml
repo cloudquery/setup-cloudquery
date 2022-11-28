@@ -42,8 +42,10 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::615713231484:role/cq-playground-aws-github-action
           aws-region: us-east-1
-      - uses: cloudquery/setup-cloudquery@v2
-        name: Setup CloudQuery
+      - name: Setup CloudQuery
+        uses: ./.
+        with:
+          version: 'v2.0.21'
       - name: Sync with CloudQuery
         run: cloudquery sync example_configs/parallel.yml --log-console
         env:
