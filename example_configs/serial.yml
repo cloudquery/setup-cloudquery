@@ -2,13 +2,13 @@ kind: source
 spec:
   name: 'aws'
   path: 'cloudquery/aws'
-  version: 'v7.3.2' # latest version of aws plugin
+  version: 'v7.4.0' # latest version of aws plugin
   destinations: ['postgresql']
 ---
 kind: destination
 spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
-  version: 'v1.7.17' # latest version of postgresql plugin
+  version: 'v1.8.0' # latest version of postgresql plugin
   spec:
     connection_string: 'postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable'
