@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.2](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.1...v3.0.2) (2023-01-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v18.11.18 ([#170](https://github.com/cloudquery/setup-cloudquery/issues/170)) ([757660b](https://github.com/cloudquery/setup-cloudquery/commit/757660b1145eb0167fd5245261433a3b6b0f2eeb))
+* **deps:** Update dependency @types/pg to v8.6.6 ([#171](https://github.com/cloudquery/setup-cloudquery/issues/171)) ([b5c8dde](https://github.com/cloudquery/setup-cloudquery/commit/b5c8ddeb491e952b8fd35586cd4aa4039366f7fa))
+* **deps:** Update dependency @vercel/ncc to v0.36.0 ([#174](https://github.com/cloudquery/setup-cloudquery/issues/174)) ([f58d801](https://github.com/cloudquery/setup-cloudquery/commit/f58d8019c47f7d3c844fa8367eeb7275cf0f9180))
+* **deps:** Update dependency chalk to v5.2.0 ([#175](https://github.com/cloudquery/setup-cloudquery/issues/175)) ([a64fd49](https://github.com/cloudquery/setup-cloudquery/commit/a64fd49996292fee2ac4760b99499ef7ef799466))
+* **deps:** Update dependency eslint to v8.31.0 ([#176](https://github.com/cloudquery/setup-cloudquery/issues/176)) ([5887e05](https://github.com/cloudquery/setup-cloudquery/commit/5887e056dcd4c10fd99336324c4c49a480d2565f))
+* **deps:** Update dependency prettier to v2.8.1 ([#172](https://github.com/cloudquery/setup-cloudquery/issues/172)) ([5c2085f](https://github.com/cloudquery/setup-cloudquery/commit/5c2085ff378aefcb42c7f2dbe5da67d1888daf6e))
+* **deps:** Update dependency typescript to v4.9.4 ([#173](https://github.com/cloudquery/setup-cloudquery/issues/173)) ([f4dcc18](https://github.com/cloudquery/setup-cloudquery/commit/f4dcc18d9571239bef59f319d2b0ebef9759ecbb))
+* **deps:** Update typescript-eslint monorepo to v5.47.1 ([#177](https://github.com/cloudquery/setup-cloudquery/issues/177)) ([125bac3](https://github.com/cloudquery/setup-cloudquery/commit/125bac35752d0ba819766174a46de0dd53cd8852))
+
 ## [3.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.0...v3.0.1) (2022-12-01)
 
 
