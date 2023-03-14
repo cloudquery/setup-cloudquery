@@ -12935,7 +12935,7 @@ standard})
 {
 const{
 signals:{[name]:constantSignal}}=
-external_os_.constants;
+external_node_os_namespaceObject.constants;
 const supported=constantSignal!==undefined;
 const number=supported?constantSignal:defaultNumber;
 return{name,number,description,supported,action,forced,standard};
@@ -12951,16 +12951,21 @@ return{name,number,description,supported,action,forced,standard};
 
 const getSignalsByName=function(){
 const signals=getSignals();
-return signals.reduce(getSignalByName,{});
+return Object.fromEntries(signals.map(getSignalByName));
 };
 
-const getSignalByName=function(
-signalByNameMemo,
-{name,number,description,supported,action,forced,standard})
+const getSignalByName=function({
+name,
+number,
+description,
+supported,
+action,
+forced,
+standard})
 {
-return{
-...signalByNameMemo,
-[name]:{name,number,description,supported,action,forced,standard}};
+return[
+name,
+{name,number,description,supported,action,forced,standard}];
 
 };
 
@@ -13002,7 +13007,7 @@ standard}};
 
 
 const findSignalByNumber=function(number,signals){
-const signal=signals.find(({name})=>external_os_.constants.signals[name]===number);
+const signal=signals.find(({name})=>external_node_os_namespaceObject.constants.signals[name]===number);
 
 if(signal!==undefined){
 return signal;
@@ -13299,9 +13304,7 @@ var merge_stream = __nccwpck_require__(2621);
 
 // `input` option
 const handleInput = (spawned, input) => {
-	// Checking for stdin is workaround for https://github.com/nodejs/node/issues/26852
-	// @todo remove `|| spawned.stdin === undefined` once we drop support for Node.js <=12.2.0
-	if (input === undefined || spawned.stdin === undefined) {
+	if (input === undefined) {
 		return;
 	}
 
@@ -13333,7 +13336,8 @@ const makeAllStream = (spawned, {all}) => {
 
 // On failure, `result.stdout|stderr|all` should contain the currently buffered stream
 const getBufferedData = async (stream, streamPromise) => {
-	if (!stream) {
+	// When `buffer` is `false`, `streamPromise` is `undefined` and there is no buffered data to retrieve
+	if (!stream || streamPromise === undefined) {
 		return;
 	}
 
@@ -13383,7 +13387,9 @@ const stream_validateInputSync = ({input}) => {
 };
 
 ;// CONCATENATED MODULE: ./node_modules/execa/lib/promise.js
+// eslint-disable-next-line unicorn/prefer-top-level-await
 const nativePromisePrototype = (async () => {})().constructor.prototype;
+
 const descriptors = ['then', 'catch', 'finally'].map(property => [
 	property,
 	Reflect.getOwnPropertyDescriptor(nativePromisePrototype, property),
