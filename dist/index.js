@@ -13045,7 +13045,7 @@ const getErrorPrefix = ({timedOut, timeout, errorCode, signal, signalDescription
 	return 'failed';
 };
 
-const error_makeError = ({
+const makeError = ({
 	stdout,
 	stderr,
 	all,
@@ -13262,22 +13262,24 @@ const setExitHandler = async (spawned, {cleanup, detached}, timedPromise) => {
 	});
 };
 
+;// CONCATENATED MODULE: external "node:fs"
+const external_node_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:fs");
 ;// CONCATENATED MODULE: ./node_modules/is-stream/index.js
-function is_stream_isStream(stream) {
+function isStream(stream) {
 	return stream !== null
 		&& typeof stream === 'object'
 		&& typeof stream.pipe === 'function';
 }
 
 function isWritableStream(stream) {
-	return is_stream_isStream(stream)
+	return isStream(stream)
 		&& stream.writable !== false
 		&& typeof stream._write === 'function'
 		&& typeof stream._writableState === 'object';
 }
 
 function isReadableStream(stream) {
-	return is_stream_isStream(stream)
+	return isStream(stream)
 		&& stream.readable !== false
 		&& typeof stream._read === 'function'
 		&& typeof stream._readableState === 'object';
@@ -13293,6 +13295,50 @@ function isTransformStream(stream) {
 		&& typeof stream._transform === 'function';
 }
 
+;// CONCATENATED MODULE: ./node_modules/execa/lib/pipe.js
+
+
+
+
+const isExecaChildProcess = target => target instanceof external_node_child_process_namespaceObject.ChildProcess && typeof target.then === 'function';
+
+const pipeToTarget = (spawned, streamName, target) => {
+	if (typeof target === 'string') {
+		spawned[streamName].pipe((0,external_node_fs_namespaceObject.createWriteStream)(target));
+		return spawned;
+	}
+
+	if (isWritableStream(target)) {
+		spawned[streamName].pipe(target);
+		return spawned;
+	}
+
+	if (!isExecaChildProcess(target)) {
+		throw new TypeError('The second argument must be a string, a stream or an Execa child process.');
+	}
+
+	if (!isWritableStream(target.stdin)) {
+		throw new TypeError('The target child process\'s stdin must be available.');
+	}
+
+	spawned[streamName].pipe(target.stdin);
+	return target;
+};
+
+const addPipeMethods = spawned => {
+	if (spawned.stdout !== null) {
+		spawned.pipeStdout = pipeToTarget.bind(undefined, spawned, 'stdout');
+	}
+
+	if (spawned.stderr !== null) {
+		spawned.pipeStderr = pipeToTarget.bind(undefined, spawned, 'stderr');
+	}
+
+	if (spawned.all !== undefined) {
+		spawned.pipeAll = pipeToTarget.bind(undefined, spawned, 'all');
+	}
+};
+
 // EXTERNAL MODULE: ./node_modules/get-stream/index.js
 var get_stream = __nccwpck_require__(1766);
 // EXTERNAL MODULE: ./node_modules/merge-stream/index.js
@@ -13302,13 +13348,51 @@ var merge_stream = __nccwpck_require__(2621);
 
 
 
-// `input` option
-const handleInput = (spawned, input) => {
+
+const validateInputOptions = input => {
+	if (input !== undefined) {
+		throw new TypeError('The `input` and `inputFile` options cannot be both set.');
+	}
+};
+
+const getInputSync = ({input, inputFile}) => {
+	if (typeof inputFile !== 'string') {
+		return input;
+	}
+
+	validateInputOptions(input);
+	return (0,external_node_fs_namespaceObject.readFileSync)(inputFile);
+};
+
+// `input` and `inputFile` option in sync mode
+const handleInputSync = options => {
+	const input = getInputSync(options);
+
+	if (isStream(input)) {
+		throw new TypeError('The `input` option cannot be a stream in sync mode');
+	}
+
+	return input;
+};
+
+const getInput = ({input, inputFile}) => {
+	if (typeof inputFile !== 'string') {
+		return input;
+	}
+
+	validateInputOptions(input);
+	return (0,external_node_fs_namespaceObject.createReadStream)(inputFile);
+};
+
+// `input` and `inputFile` option in async mode
+const handleInput = (spawned, options) => {
+	const input = getInput(options);
+
 	if (input === undefined) {
 		return;
 	}
 
-	if (is_stream_isStream(input)) {
+	if (isStream(input)) {
 		input.pipe(spawned.stdin);
 	} else {
 		spawned.stdin.end(input);
@@ -13380,12 +13464,6 @@ const getSpawnedResult = async ({stdout, stderr, all}, {encoding, buffer, maxBuf
 	}
 };
 
-const stream_validateInputSync = ({input}) => {
-	if (isStream(input)) {
-		throw new TypeError('The `input` option cannot be a stream in sync mode');
-	}
-};
-
 ;// CONCATENATED MODULE: ./node_modules/execa/lib/promise.js
 // eslint-disable-next-line unicorn/prefer-top-level-await
 const nativePromisePrototype = (async () => {})().constructor.prototype;
@@ -13405,8 +13483,6 @@ const mergePromise = (spawned, promise) => {
 
 		Reflect.defineProperty(spawned, property, {...descriptor, value});
 	}
-
-	return spawned;
 };
 
 // Use promises instead of `child_process` events
@@ -13427,6 +13503,9 @@ const getSpawnedPromise = spawned => new Promise((resolve, reject) => {
 });
 
 ;// CONCATENATED MODULE: ./node_modules/execa/lib/command.js
+
+
+
 const normalizeArgs = (file, args = []) => {
 	if (!Array.isArray(args)) {
 		return [file];
@@ -13446,9 +13525,9 @@ const escapeArg = arg => {
 	return `"${arg.replace(DOUBLE_QUOTES_REGEXP, '\\"')}"`;
 };
 
-const command_joinCommand = (file, args) => normalizeArgs(file, args).join(' ');
+const joinCommand = (file, args) => normalizeArgs(file, args).join(' ');
 
-const command_getEscapedCommand = (file, args) => normalizeArgs(file, args).map(arg => escapeArg(arg)).join(' ');
+const getEscapedCommand = (file, args) => normalizeArgs(file, args).map(arg => escapeArg(arg)).join(' ');
 
 const SPACES_REGEXP = / +/g;
 
@@ -13469,7 +13548,108 @@ const command_parseCommand = command => {
 	return tokens;
 };
 
+const parseExpression = expression => {
+	const typeOfExpression = typeof expression;
+
+	if (typeOfExpression === 'string') {
+		return expression;
+	}
+
+	if (typeOfExpression === 'number') {
+		return String(expression);
+	}
+
+	if (
+		typeOfExpression === 'object'
+		&& expression !== null
+		&& !(expression instanceof external_node_child_process_namespaceObject.ChildProcess)
+		&& 'stdout' in expression
+	) {
+		const typeOfStdout = typeof expression.stdout;
+
+		if (typeOfStdout === 'string') {
+			return expression.stdout;
+		}
+
+		if (external_node_buffer_namespaceObject.Buffer.isBuffer(expression.stdout)) {
+			return expression.stdout.toString();
+		}
+
+		throw new TypeError(`Unexpected "${typeOfStdout}" stdout in template expression`);
+	}
+
+	throw new TypeError(`Unexpected "${typeOfExpression}" in template expression`);
+};
+
+const concatTokens = (tokens, nextTokens, isNew) => isNew || tokens.length === 0 || nextTokens.length === 0
+	? [...tokens, ...nextTokens]
+	: [
+		...tokens.slice(0, -1),
+		`${tokens[tokens.length - 1]}${nextTokens[0]}`,
+		...nextTokens.slice(1),
+	];
+
+const parseTemplate = ({templates, expressions, tokens, index, template}) => {
+	const templateString = template ?? templates.raw[index];
+	const templateTokens = templateString.split(SPACES_REGEXP).filter(Boolean);
+	const newTokens = concatTokens(
+		tokens,
+		templateTokens,
+		templateString.startsWith(' '),
+	);
+
+	if (index === expressions.length) {
+		return newTokens;
+	}
+
+	const expression = expressions[index];
+	const expressionTokens = Array.isArray(expression)
+		? expression.map(expression => parseExpression(expression))
+		: [parseExpression(expression)];
+	return concatTokens(
+		newTokens,
+		expressionTokens,
+		templateString.endsWith(' '),
+	);
+};
+
+const parseTemplates = (templates, expressions) => {
+	let tokens = [];
+
+	for (const [index, template] of templates.entries()) {
+		tokens = parseTemplate({templates, expressions, tokens, index, template});
+	}
+
+	return tokens;
+};
+
+
+;// CONCATENATED MODULE: external "node:util"
+const external_node_util_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:util");
+;// CONCATENATED MODULE: ./node_modules/execa/lib/verbose.js
+
+
+
+const verboseDefault = (0,external_node_util_namespaceObject.debuglog)('execa').enabled;
+
+const padField = (field, padding) => String(field).padStart(padding, '0');
+
+const getTimestamp = () => {
+	const date = new Date();
+	return `${padField(date.getHours(), 2)}:${padField(date.getMinutes(), 2)}:${padField(date.getSeconds(), 2)}.${padField(date.getMilliseconds(), 3)}`;
+};
+
+const logCommand = (escapedCommand, {verbose}) => {
+	if (!verbose) {
+		return;
+	}
+
+	external_node_process_namespaceObject.stderr.write(`[${getTimestamp()}] ${escapedCommand}\n`);
+};
+
 ;// CONCATENATED MODULE: ./node_modules/execa/index.js
+
+
 
 
 
@@ -13516,6 +13696,7 @@ const handleArguments = (file, args, options = {}) => {
 		cleanup: true,
 		all: false,
 		windowsHide: true,
+		verbose: verboseDefault,
 		...options,
 	};
 
@@ -13546,8 +13727,9 @@ const handleOutput = (options, value, error) => {
 
 function execa(file, args, options) {
 	const parsed = handleArguments(file, args, options);
-	const command = command_joinCommand(file, args);
-	const escapedCommand = command_getEscapedCommand(file, args);
+	const command = joinCommand(file, args);
+	const escapedCommand = getEscapedCommand(file, args);
+	logCommand(escapedCommand, parsed.options);
 
 	validateTimeout(parsed.options);
 
@@ -13557,7 +13739,7 @@ function execa(file, args, options) {
 	} catch (error) {
 		// Ensure the returned error is always both a promise and a child process
 		const dummySpawned = new external_node_child_process_namespaceObject.ChildProcess();
-		const errorPromise = Promise.reject(error_makeError({
+		const errorPromise = Promise.reject(makeError({
 			error,
 			stdout: '',
 			stderr: '',
@@ -13569,7 +13751,8 @@ function execa(file, args, options) {
 			isCanceled: false,
 			killed: false,
 		}));
-		return mergePromise(dummySpawned, errorPromise);
+		mergePromise(dummySpawned, errorPromise);
+		return dummySpawned;
 	}
 
 	const spawnedPromise = getSpawnedPromise(spawned);
@@ -13588,7 +13771,7 @@ function execa(file, args, options) {
 		const all = handleOutput(parsed.options, allResult);
 
 		if (error || exitCode !== 0 || signal !== null) {
-			const returnedError = error_makeError({
+			const returnedError = makeError({
 				error,
 				exitCode,
 				signal,
@@ -13626,23 +13809,26 @@ function execa(file, args, options) {
 
 	const handlePromiseOnce = node_modules_onetime(handlePromise);
 
-	handleInput(spawned, parsed.options.input);
+	handleInput(spawned, parsed.options);
 
 	spawned.all = makeAllStream(spawned, parsed.options);
 
-	return mergePromise(spawned, handlePromiseOnce);
+	addPipeMethods(spawned);
+	mergePromise(spawned, handlePromiseOnce);
+	return spawned;
 }
 
 function execaSync(file, args, options) {
 	const parsed = handleArguments(file, args, options);
 	const command = joinCommand(file, args);
 	const escapedCommand = getEscapedCommand(file, args);
+	logCommand(escapedCommand, parsed.options);
 
-	validateInputSync(parsed.options);
+	const input = handleInputSync(parsed.options);
 
 	let result;
 	try {
-		result = childProcess.spawnSync(parsed.file, parsed.args, parsed.options);
+		result = external_node_child_process_namespaceObject.spawnSync(parsed.file, parsed.args, {...parsed.options, input});
 	} catch (error) {
 		throw makeError({
 			error,
@@ -13695,6 +13881,40 @@ function execaSync(file, args, options) {
 		killed: false,
 	};
 }
+
+const normalizeScriptStdin = ({input, inputFile, stdio}) => input === undefined && inputFile === undefined && stdio === undefined
+	? {stdin: 'inherit'}
+	: {};
+
+const normalizeScriptOptions = (options = {}) => ({
+	preferLocal: true,
+	...normalizeScriptStdin(options),
+	...options,
+});
+
+function create$(options) {
+	function $(templatesOrOptions, ...expressions) {
+		if (!Array.isArray(templatesOrOptions)) {
+			return create$({...options, ...templatesOrOptions});
+		}
+
+		const [file, ...args] = parseTemplates(templatesOrOptions, expressions);
+		return execa(file, args, normalizeScriptOptions(options));
+	}
+
+	$.sync = (templates, ...expressions) => {
+		if (!Array.isArray(templates)) {
+			throw new TypeError('Please use $(options).sync`command` instead of $.sync(options)`command`.');
+		}
+
+		const [file, ...args] = parseTemplates(templates, expressions);
+		return execaSync(file, args, normalizeScriptOptions(options));
+	};
+
+	return $;
+}
+
+const $ = create$();
 
 function execaCommand(command, options) {
 	const [file, ...args] = command_parseCommand(command);
@@ -13871,7 +14091,7 @@ function isInteractive({stream = process.stdout} = {}) {
 const external_node_readline_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:readline");
 // EXTERNAL MODULE: ./node_modules/bl/bl.js
 var bl = __nccwpck_require__(336);
-;// CONCATENATED MODULE: ./node_modules/ora/utilities.js
+;// CONCATENATED MODULE: ./node_modules/stdin-discarder/index.js
 
 
 
@@ -13888,7 +14108,7 @@ class StdinDiscarder {
 		this.#mutedStream.pipe(external_node_process_namespaceObject.stdout);
 
 		const self = this; // eslint-disable-line unicorn/no-this-assignment
-		this.#ourEmit = function (event, data, ...args) {
+		this.#ourEmit = function (event, data, ...arguments_) {
 			const {stdin} = external_node_process_namespaceObject;
 			if (self.#requests > 0 || stdin.emit === self.#ourEmit) {
 				if (event === 'keypress') { // Fixes readline behavior
@@ -13899,9 +14119,9 @@ class StdinDiscarder {
 					external_node_process_namespaceObject.emit('SIGINT');
 				}
 
-				Reflect.apply(self.#ourEmit, this, [event, data, ...args]);
+				Reflect.apply(self.#ourEmit, this, [event, data, ...arguments_]);
 			} else {
-				Reflect.apply(external_node_process_namespaceObject.stdin.emit, this, [event, data, ...args]);
+				Reflect.apply(external_node_process_namespaceObject.stdin.emit, this, [event, data, ...arguments_]);
 			}
 		};
 	}
@@ -13958,6 +14178,10 @@ class StdinDiscarder {
 	}
 }
 
+const stdinDiscarder = new StdinDiscarder();
+
+/* harmony default export */ const stdin_discarder = (stdinDiscarder);
+
 ;// CONCATENATED MODULE: ./node_modules/ora/index.js
 
 
@@ -13969,8 +14193,6 @@ class StdinDiscarder {
 
 
 
-
-let stdinDiscarder;
 
 class Ora {
 	#linesToClear = 0;
@@ -13987,14 +14209,11 @@ class Ora {
 	#indent;
 	#text;
 	#prefixText;
+	#suffixText;
 
 	color;
 
 	constructor(options) {
-		if (!stdinDiscarder) {
-			stdinDiscarder = new StdinDiscarder();
-		}
-
 		if (typeof options === 'string') {
 			options = {
 				text: options,
@@ -14024,6 +14243,7 @@ class Ora {
 		// It's important that these use the public setters.
 		this.text = this.#options.text;
 		this.prefixText = this.#options.prefixText;
+		this.suffixText = this.#options.suffixText;
 		this.indent = this.#options.indent;
 
 		if (external_node_process_namespaceObject.env.NODE_ENV === 'test') {
@@ -14114,6 +14334,15 @@ class Ora {
 		this.updateLineCount();
 	}
 
+	get suffixText() {
+		return this.#suffixText;
+	}
+
+	set suffixText(value) {
+		this.#suffixText = value || '';
+		this.updateLineCount();
+	}
+
 	get isSpinning() {
 		return this.#id !== undefined;
 	}
@@ -14131,12 +14360,26 @@ class Ora {
 		return '';
 	}
 
+	getFullSuffixText(suffixText = this.#suffixText, prefix = ' ') {
+		if (typeof suffixText === 'string' && suffixText !== '') {
+			return prefix + suffixText;
+		}
+
+		if (typeof suffixText === 'function') {
+			return prefix + suffixText();
+		}
+
+		return '';
+	}
+
 	updateLineCount() {
 		const columns = this.#stream.columns || 80;
 		const fullPrefixText = this.getFullPrefixText(this.#prefixText, '-');
+		const fullSuffixText = this.getFullSuffixText(this.#suffixText, '-');
+		const fullText = ' '.repeat(this.#indent) + fullPrefixText + '--' + this.#text + '--' + fullSuffixText;
 
 		this.#lineCount = 0;
-		for (const line of stripAnsi(' '.repeat(this.#indent) + fullPrefixText + '--' + this.#text).split('\n')) {
+		for (const line of stripAnsi(fullText).split('\n')) {
 			this.#lineCount += Math.max(1, Math.ceil(wcwidth(line) / columns));
 		}
 	}
@@ -14176,8 +14419,9 @@ class Ora {
 		this.#frameIndex = ++this.#frameIndex % frames.length;
 		const fullPrefixText = (typeof this.#prefixText === 'string' && this.#prefixText !== '') ? this.#prefixText + ' ' : '';
 		const fullText = typeof this.text === 'string' ? ' ' + this.text : '';
+		const fullSuffixText = (typeof this.#suffixText === 'string' && this.#suffixText !== '') ? ' ' + this.#suffixText : '';
 
-		return fullPrefixText + frame + fullText;
+		return fullPrefixText + frame + fullText + fullSuffixText;
 	}
 
 	clear() {
@@ -14244,7 +14488,7 @@ class Ora {
 
 		if (this.#options.discardStdin && external_node_process_namespaceObject.stdin.isTTY) {
 			this.#isDiscardingStdin = true;
-			stdinDiscarder.start();
+			stdin_discarder.start();
 		}
 
 		this.render();
@@ -14267,7 +14511,7 @@ class Ora {
 		}
 
 		if (this.#options.discardStdin && external_node_process_namespaceObject.stdin.isTTY && this.#isDiscardingStdin) {
-			stdinDiscarder.stop();
+			stdin_discarder.stop();
 			this.#isDiscardingStdin = false;
 		}
 
@@ -14295,12 +14539,21 @@ class Ora {
 			return this;
 		}
 
-		const prefixText = options.prefixText || this.#prefixText;
-		const text = options.text || this.text;
+		const prefixText = options.prefixText ?? this.#prefixText;
+		const fullPrefixText = this.getFullPrefixText(prefixText, ' ');
+
+		const symbolText = options.symbol ?? ' ';
+
+		const text = options.text ?? this.text;
 		const fullText = (typeof text === 'string') ? ' ' + text : '';
 
+		const suffixText = options.suffixText ?? this.#suffixText;
+		const fullSuffixText = this.getFullSuffixText(suffixText, ' ');
+
+		const textToWrite = fullPrefixText + symbolText + fullText + fullSuffixText + '\n';
+
 		this.stop();
-		this.#stream.write(`${this.getFullPrefixText(prefixText, ' ')}${options.symbol || ' '}${fullText}\n`);
+		this.#stream.write(textToWrite);
 
 		return this;
 	}
@@ -14345,6 +14598,8 @@ async function oraPromise(action, options) {
 		throw error;
 	}
 }
+
+
 
 // EXTERNAL MODULE: ./node_modules/semver/index.js
 var semver = __nccwpck_require__(1383);
