@@ -45,7 +45,7 @@ jobs:
       - name: Setup CloudQuery
         uses: ./.
         with:
-          version: 'v2.0.21'
+          version: 'v2.5.3'
       - name: Sync with CloudQuery
         run: cloudquery sync example_configs/parallel.yml --log-console
         env:
