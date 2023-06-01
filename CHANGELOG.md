@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.6](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.5...v3.0.6) (2023-06-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v17.6.1 ([#269](https://github.com/cloudquery/setup-cloudquery/issues/269)) ([47391ef](https://github.com/cloudquery/setup-cloudquery/commit/47391efda20b812c4c568a41495813461a234252))
+* **deps:** Update commitlint monorepo to v17.6.5 ([#280](https://github.com/cloudquery/setup-cloudquery/issues/280)) ([dad7105](https://github.com/cloudquery/setup-cloudquery/commit/dad71052f84623bc3edf80bcdb4b889e65067ca7))
+* **deps:** Update dependency @types/node to v18.16.16 ([#281](https://github.com/cloudquery/setup-cloudquery/issues/281)) ([70736b6](https://github.com/cloudquery/setup-cloudquery/commit/70736b6970a71a6121f0f1d934c178af0147d050))
+* **deps:** Update dependency @types/node to v18.16.3 ([#270](https://github.com/cloudquery/setup-cloudquery/issues/270)) ([8ab1911](https://github.com/cloudquery/setup-cloudquery/commit/8ab19110324945095ed82d23ea63c4306ec91f5a))
+* **deps:** Update dependency @types/pg to v8.10.1 ([#283](https://github.com/cloudquery/setup-cloudquery/issues/283)) ([7dc18cc](https://github.com/cloudquery/setup-cloudquery/commit/7dc18cc01082a3c12a2faff04984334f3adf6670))
+* **deps:** Update dependency eslint to v8.41.0 ([#284](https://github.com/cloudquery/setup-cloudquery/issues/284)) ([621aae4](https://github.com/cloudquery/setup-cloudquery/commit/621aae499a72fea47fb00d7cf2bfbd068bdf936b))
+* **deps:** Update dependency ora to v6.3.1 ([#282](https://github.com/cloudquery/setup-cloudquery/issues/282)) ([ca23a3b](https://github.com/cloudquery/setup-cloudquery/commit/ca23a3bf98f08156adcdf3ff04c4d2b620ceb4f2))
+* **deps:** Update dependency prettier to v2.8.8 ([#266](https://github.com/cloudquery/setup-cloudquery/issues/266)) ([caf66b5](https://github.com/cloudquery/setup-cloudquery/commit/caf66b56010d5c37655222ffaa552983765d5439))
+* **deps:** Update dependency semver to v7.5.1 ([#285](https://github.com/cloudquery/setup-cloudquery/issues/285)) ([64f4abc](https://github.com/cloudquery/setup-cloudquery/commit/64f4abc8015b164a633bf44fd0e610cebffc2b9a))
+* **deps:** Update dependency typescript to v5.0.4 ([#267](https://github.com/cloudquery/setup-cloudquery/issues/267)) ([5266487](https://github.com/cloudquery/setup-cloudquery/commit/52664871fb2a14bcba4f9696e83d10325f6bb7a6))
+
 ## [3.0.5](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.4...v3.0.5) (2023-04-04)
 
 
