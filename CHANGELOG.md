@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.7](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.6...v3.0.7) (2023-07-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v17.6.6 ([#295](https://github.com/cloudquery/setup-cloudquery/issues/295)) ([6b2e986](https://github.com/cloudquery/setup-cloudquery/commit/6b2e986b98c7c633b880c2d4d5de8d88d0cad340))
+* **deps:** Update dependency @types/node to v18.16.19 ([#296](https://github.com/cloudquery/setup-cloudquery/issues/296)) ([11b9b71](https://github.com/cloudquery/setup-cloudquery/commit/11b9b71c1e5c60622e246ef443c5066ecd14aec9))
+* **deps:** Update dependency @types/pg to v8.10.2 ([#299](https://github.com/cloudquery/setup-cloudquery/issues/299)) ([f258a3a](https://github.com/cloudquery/setup-cloudquery/commit/f258a3aa08c2b50462c34c4db8f5f95ce31a9263))
+* **deps:** Update dependency chalk to v5.3.0 ([#301](https://github.com/cloudquery/setup-cloudquery/issues/301)) ([b00a4b7](https://github.com/cloudquery/setup-cloudquery/commit/b00a4b70655194e8de87985d2a10a40ec12b3682))
+* **deps:** Update dependency semver to v7.5.2 [SECURITY] ([#298](https://github.com/cloudquery/setup-cloudquery/issues/298)) ([63f0636](https://github.com/cloudquery/setup-cloudquery/commit/63f06368eea9833f45bd815e303bc51a341bd030))
+* **deps:** Update dependency semver to v7.5.3 ([#300](https://github.com/cloudquery/setup-cloudquery/issues/300)) ([9e29bfc](https://github.com/cloudquery/setup-cloudquery/commit/9e29bfcd3c75cf6607a11c92b262b7e624fdeb80))
+
 ## [3.0.6](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.5...v3.0.6) (2023-06-01)
 
 
