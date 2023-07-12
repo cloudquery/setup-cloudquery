@@ -2,7 +2,7 @@ kind: source
 spec:
   name: 'aws-REGION_PLACEHOLDER'
   path: cloudquery/aws
-  version: 'v19.2.0' # latest version of aws plugin
+  version: 'v20.0.0' # latest version of aws plugin
   destinations: ['postgresql-REGION_PLACEHOLDER']
   tables: [aws_s3_buckets]
   spec:
@@ -13,6 +13,6 @@ kind: destination
 spec:
   name: 'postgresql-REGION_PLACEHOLDER'
   path: cloudquery/postgresql
-  version: 'v4.2.2' # latest version of postgresql plugin
+  version: 'v5.0.0' # latest version of postgresql plugin
   spec:
     connection_string: ${CQ_DSN} # The CQ_DSN environment variable will be set by GitHub Action workflow
