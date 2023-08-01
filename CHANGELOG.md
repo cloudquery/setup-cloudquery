@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.8](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.7...v3.0.8) (2023-08-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v17.6.7 ([#314](https://github.com/cloudquery/setup-cloudquery/issues/314)) ([cbc5423](https://github.com/cloudquery/setup-cloudquery/commit/cbc5423fb77e94ade177cdc7c92fceb953d454ab))
+* **deps:** Update dependency @types/node to v18.17.1 ([#317](https://github.com/cloudquery/setup-cloudquery/issues/317)) ([63240b3](https://github.com/cloudquery/setup-cloudquery/commit/63240b3b97452dede1e230caee3327df6b965251))
+* **deps:** Update dependency eslint to v8.46.0 ([#318](https://github.com/cloudquery/setup-cloudquery/issues/318)) ([66b8193](https://github.com/cloudquery/setup-cloudquery/commit/66b8193505d2084798e741aea32d9e481a81c5e9))
+* **deps:** Update dependency eslint-config-prettier to v8.9.0 ([#319](https://github.com/cloudquery/setup-cloudquery/issues/319)) ([ae68599](https://github.com/cloudquery/setup-cloudquery/commit/ae68599792db69e15859c8e64fad4a5fa2550b68))
+* **deps:** Update dependency execa to v7.2.0 ([#320](https://github.com/cloudquery/setup-cloudquery/issues/320)) ([6e8b242](https://github.com/cloudquery/setup-cloudquery/commit/6e8b242508d51418dc2e5e9393b7a893ee8e1684))
+* **deps:** Update dependency semver to v7.5.4 ([#315](https://github.com/cloudquery/setup-cloudquery/issues/315)) ([79bace3](https://github.com/cloudquery/setup-cloudquery/commit/79bace3993a13da4eb6d29f1c669ffcdb5320aab))
+* **deps:** Update dependency typescript to v5.1.6 ([#321](https://github.com/cloudquery/setup-cloudquery/issues/321)) ([fd5e858](https://github.com/cloudquery/setup-cloudquery/commit/fd5e85802e9abdcd707b94bdac1cc09d556bd6d2))
+* **deps:** Update typescript-eslint monorepo to v5.62.0 ([#322](https://github.com/cloudquery/setup-cloudquery/issues/322)) ([4b9a3f4](https://github.com/cloudquery/setup-cloudquery/commit/4b9a3f4538d4c4271ae4002e2302498521d62fb2))
+
 ## [3.0.7](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.6...v3.0.7) (2023-07-01)
 
 
