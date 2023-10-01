@@ -34,7 +34,7 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.7.1",
+    "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@types/node": "18.17.12",
     "@types/pg": "8.10.3",
