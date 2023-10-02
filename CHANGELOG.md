@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.10](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.9...v3.0.10) (2023-10-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @actions/core to v1.10.1 ([#359](https://github.com/cloudquery/setup-cloudquery/issues/359)) ([3a80e53](https://github.com/cloudquery/setup-cloudquery/commit/3a80e53fbf1d009dc20928f2e11fec1ce72e53bf))
+* **deps:** Update dependency @commitlint/cli to v17.7.2 ([#361](https://github.com/cloudquery/setup-cloudquery/issues/361)) ([6a2dff0](https://github.com/cloudquery/setup-cloudquery/commit/6a2dff07e1c4109784c0a89eb1477d42576fd01c))
+* **deps:** Update dependency @types/node to v18.18.1 ([#364](https://github.com/cloudquery/setup-cloudquery/issues/364)) ([005b43d](https://github.com/cloudquery/setup-cloudquery/commit/005b43dce39e08c7a9aac114e55db000364f4751))
+* **deps:** Update dependency @types/pg to v8.10.3 ([#362](https://github.com/cloudquery/setup-cloudquery/issues/362)) ([2e35524](https://github.com/cloudquery/setup-cloudquery/commit/2e355247b5c2abc9923df0ba9d96f820b2e5ca3d))
+* **deps:** Update dependency @types/semver to v7.5.3 ([#363](https://github.com/cloudquery/setup-cloudquery/issues/363)) ([bbb1022](https://github.com/cloudquery/setup-cloudquery/commit/bbb10223b7b09c3e3f30d045292deb27b369ce1f))
+
 ## [3.0.9](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.8...v3.0.9) (2023-09-07)
 
 
