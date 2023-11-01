@@ -37,7 +37,7 @@
     "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@types/node": "18.18.8",
-    "@types/pg": "8.10.3",
+    "@types/pg": "8.10.7",
     "@types/semver": "7.5.3",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
