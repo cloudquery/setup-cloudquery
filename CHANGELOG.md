@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.11](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.10...v3.0.11) (2023-11-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v17.8.1 ([#382](https://github.com/cloudquery/setup-cloudquery/issues/382)) ([027037a](https://github.com/cloudquery/setup-cloudquery/commit/027037ab2b7a19641c4cd5a6f8be88f92c434406))
+* **deps:** Update dependency @types/node to v18.18.8 ([#378](https://github.com/cloudquery/setup-cloudquery/issues/378)) ([0cfc7a6](https://github.com/cloudquery/setup-cloudquery/commit/0cfc7a606c4fb6c62a572b8b568b68725af6eafb))
+* **deps:** Update dependency @types/pg to v8.10.7 ([#379](https://github.com/cloudquery/setup-cloudquery/issues/379)) ([bb83a8a](https://github.com/cloudquery/setup-cloudquery/commit/bb83a8afcabe088e84900cc0218889b8e2addfa5))
+* **deps:** Update dependency @types/semver to v7.5.4 ([#381](https://github.com/cloudquery/setup-cloudquery/issues/381)) ([dadda5a](https://github.com/cloudquery/setup-cloudquery/commit/dadda5a0337c7de513aadbcbef8075b3c106438f))
+* **deps:** Update dependency @vercel/ncc to v0.38.1 ([#383](https://github.com/cloudquery/setup-cloudquery/issues/383)) ([43c4ac2](https://github.com/cloudquery/setup-cloudquery/commit/43c4ac254c07c62852fa5532d91b25989408c9ef))
+* **deps:** Update dependency eslint to v8.52.0 ([#384](https://github.com/cloudquery/setup-cloudquery/issues/384)) ([eb8ecb0](https://github.com/cloudquery/setup-cloudquery/commit/eb8ecb02d24759542d4034e49ac0c8d9d4419035))
+
 ## [3.0.10](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.9...v3.0.10) (2023-10-01)
 
 
