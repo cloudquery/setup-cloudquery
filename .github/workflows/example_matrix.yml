@@ -30,7 +30,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v3 # Checkout the code so we have access to the config file
+      - uses: actions/checkout@v4 # Checkout the code so we have access to the config file
       - name: Set region in config file
         uses: jacobtomlinson/gha-find-replace@3a8ed858a4e3fb487c6f53658ec40b2b1d45d9d8
         with:
