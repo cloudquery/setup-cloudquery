@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.0.12](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.11...v3.0.12) (2023-12-04)
+
+
+### Bug Fixes
+
+* **deps:** Update aws-actions/configure-aws-credentials action to v4 ([#398](https://github.com/cloudquery/setup-cloudquery/issues/398)) ([c980a25](https://github.com/cloudquery/setup-cloudquery/commit/c980a25b4643ade1a18d0426c4280e6d9c642c55))
+* **deps:** Update dependency @types/node to v18.19.0 ([#395](https://github.com/cloudquery/setup-cloudquery/issues/395)) ([eb89201](https://github.com/cloudquery/setup-cloudquery/commit/eb8920158a37474ba0d9c854cc44e892b373ce96))
+* **deps:** Update dependency @types/node to v20 ([#400](https://github.com/cloudquery/setup-cloudquery/issues/400)) ([50de566](https://github.com/cloudquery/setup-cloudquery/commit/50de56672e7fd9903af622e500100f5834050fe9))
+* **deps:** Update dependency @types/pg to v8.10.9 ([#392](https://github.com/cloudquery/setup-cloudquery/issues/392)) ([61c2b4e](https://github.com/cloudquery/setup-cloudquery/commit/61c2b4ec3834cd0315407d7ad40b54ccb4dbdd83))
+* **deps:** Update dependency @types/semver to v7.5.6 ([#393](https://github.com/cloudquery/setup-cloudquery/issues/393)) ([9866be0](https://github.com/cloudquery/setup-cloudquery/commit/9866be05f4dd4cb45a7fd4b0a8b46ce40d437900))
+* **deps:** Update dependency eslint to v8.54.0 ([#396](https://github.com/cloudquery/setup-cloudquery/issues/396)) ([b1688d2](https://github.com/cloudquery/setup-cloudquery/commit/b1688d28a85d2e6eb469f2b098ea95bc11d9d4f0))
+* **deps:** Update dependency typescript to v5.3.2 ([#397](https://github.com/cloudquery/setup-cloudquery/issues/397)) ([881c11e](https://github.com/cloudquery/setup-cloudquery/commit/881c11efaba4872b30c082bd550ea2263a35c0cb))
+
 ## [3.0.11](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.10...v3.0.11) (2023-11-01)
 
 
