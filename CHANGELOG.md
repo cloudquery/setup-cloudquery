@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.13](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.12...v3.0.13) (2024-01-02)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v20.10.6 ([#407](https://github.com/cloudquery/setup-cloudquery/issues/407)) ([dc07f2b](https://github.com/cloudquery/setup-cloudquery/commit/dc07f2bdf67ccd1b86627079415a23b7272fac6d))
+* **deps:** Update dependency eslint to v8.56.0 ([#410](https://github.com/cloudquery/setup-cloudquery/issues/410)) ([e477960](https://github.com/cloudquery/setup-cloudquery/commit/e477960bc82e51e251867fcabd880d1c1a9d4b71))
+* **deps:** Update dependency execa to v8 ([#414](https://github.com/cloudquery/setup-cloudquery/issues/414)) ([24aed96](https://github.com/cloudquery/setup-cloudquery/commit/24aed964eeeafa35a8ffc52d05510f1a52974928))
+* **deps:** Update dependency ora to v8 ([#415](https://github.com/cloudquery/setup-cloudquery/issues/415)) ([f037642](https://github.com/cloudquery/setup-cloudquery/commit/f037642d8888c0d321af2d795288065fc191f7e0))
+* **deps:** Update dependency typescript to v5.3.3 ([#408](https://github.com/cloudquery/setup-cloudquery/issues/408)) ([420cc3a](https://github.com/cloudquery/setup-cloudquery/commit/420cc3a66002fc6ec15a9a72654a292e96936180))
+* **deps:** Update GoogleCloudPlatform/release-please-action action to v4 ([#411](https://github.com/cloudquery/setup-cloudquery/issues/411)) ([a11d954](https://github.com/cloudquery/setup-cloudquery/commit/a11d9541cd5c7d9da033709f6bd7dd38b92515ea))
+
 ## [3.0.12](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.11...v3.0.12) (2023-12-04)
 
 
