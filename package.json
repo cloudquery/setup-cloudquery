@@ -1,6 +1,6 @@
 {
   "name": "@cloudquery/setup-cloudquery",
-  "version": "3.0.12",
+  "version": "3.0.13",
   "description": "Setup CloudQuery CLI in a GitHub action environment",
   "main": "dist/index.js",
   "type": "module",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@actions/core": "1.10.1",
     "chalk": "5.3.0",
-    "execa": "7.2.0",
-    "ora": "6.3.1",
+    "execa": "8.0.1",
+    "ora": "8.0.1",
     "semver": "7.5.4"
   },
   "engines": {
@@ -39,15 +39,15 @@
     "@types/node": "20.10.6",
     "@types/pg": "8.10.9",
     "@types/semver": "7.5.6",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "6.17.0",
+    "@typescript-eslint/parser": "6.17.0",
     "@vercel/ncc": "0.38.1",
     "eslint": "8.56.0",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-prettier": "5.1.2",
     "husky": "8.0.3",
-    "prettier": "2.8.8",
+    "prettier": "3.1.1",
     "typescript": "5.3.3"
   }
 }
