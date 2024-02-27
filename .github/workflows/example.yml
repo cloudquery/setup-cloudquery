@@ -10,6 +10,7 @@ on:
 env:
   ACTIONS_RUNNER_DEBUG: true
   ACTIONS_STEP_DEBUG: true
+  CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
 jobs:
   cloudquery-sync:
     permissions:
