@@ -49,4 +49,5 @@ jobs:
       - name: Sync with CloudQuery
         run: cloudquery sync example_configs/parallel.yml --log-console
         env:
+          CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
           CQ_DSN: postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable
