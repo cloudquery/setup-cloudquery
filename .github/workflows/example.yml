@@ -7,10 +7,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-env:
-  ACTIONS_RUNNER_DEBUG: true
-  ACTIONS_STEP_DEBUG: true
-  CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
 jobs:
   cloudquery-sync:
     permissions:
@@ -51,4 +47,6 @@ jobs:
         with:
           version: ${{matrix.cloudquery-version}}
       - name: Sync with CloudQuery
+        env:
+          CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
         run: cloudquery sync example_configs/serial.yml --log-console
