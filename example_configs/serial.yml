@@ -2,7 +2,7 @@ kind: source
 spec:
   name: 'aws'
   path: 'cloudquery/aws'
-  version: 'v25.2.0' # latest version of aws plugin
+  version: 'v25.2.1' # latest version of aws plugin
   destinations: ['postgresql']
   tables: [aws_s3_buckets]
   skip_dependent_tables: true
