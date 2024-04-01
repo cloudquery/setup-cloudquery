@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout a git repository with a pre-existing CloudQuery configuration files
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Setup AWS credentials (example)
       - name: Configure AWS credentials
@@ -38,7 +38,7 @@ jobs:
         name: Setup CloudQuery
         with:
           # Required. Must be a valid SemVer version
-          version: 'v3.9.0'
+          version: 'v5.12.1'
 
       - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...] --log-console
