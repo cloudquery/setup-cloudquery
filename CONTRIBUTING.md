@@ -8,7 +8,7 @@ The following is a set of guidelines for contributing to this repository.
 ## Prerequisites
 
 - Fork and clone this repository. If you're not sure how to do it follow [this getting started guide](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github).
-- [Node.js](https://nodejs.org/en/) installed with a version greater or equal to 16.
+- [Node.js](https://nodejs.org/en/) installed with a version greater or equal to 20.
 
 ## Setup
 
