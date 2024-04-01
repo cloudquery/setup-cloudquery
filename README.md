@@ -29,12 +29,12 @@ jobs:
 
       # Setup AWS credentials (example)
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: <role-arn>
           aws-region: <region>
 
-      - uses: cloudquery/setup-cloudquery@v2
+      - uses: cloudquery/setup-cloudquery@v3
         name: Setup CloudQuery
         with:
           # Required. Must be a valid SemVer version
