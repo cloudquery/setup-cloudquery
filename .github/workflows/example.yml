@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         dbversion: ['postgres:latest']
-        cloudquery-version: ['4.3.4', 'v4.3.4']
+        cloudquery-version: ['5.12.1', 'v5.12.1']
         os: [ubuntu-latest]
       fail-fast: false
     services:
