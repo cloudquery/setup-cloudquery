@@ -1,1 +1,6 @@
-*       @cloudquery/cloudquery-opensource 
+* @cloudquery/cloudquery-framework
+
+package-lock.json
+package.json
+.release-please-manifest.json
+CHANGELOG.md
