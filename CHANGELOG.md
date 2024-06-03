@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.16](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.15...v3.0.16) (2024-06-03)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v20.13.0 ([#513](https://github.com/cloudquery/setup-cloudquery/issues/513)) ([cd5f676](https://github.com/cloudquery/setup-cloudquery/commit/cd5f6764a5a29dfb97316a363bd57195b987ff8a))
+* **deps:** Update dependency eslint-plugin-n to v17.7.0 ([#515](https://github.com/cloudquery/setup-cloudquery/issues/515)) ([08b44f0](https://github.com/cloudquery/setup-cloudquery/commit/08b44f0728bfff1f4f8768a4baa1b4d81714be44))
+* **deps:** Update dependency semver to v7.6.2 ([#512](https://github.com/cloudquery/setup-cloudquery/issues/512)) ([dc668d1](https://github.com/cloudquery/setup-cloudquery/commit/dc668d1e95e26120f40a2b5cb7ae22b11b6c5dcf))
+* **deps:** Update typescript-eslint monorepo to v7.11.0 ([#516](https://github.com/cloudquery/setup-cloudquery/issues/516)) ([3b16ac6](https://github.com/cloudquery/setup-cloudquery/commit/3b16ac6b29e195dc08bc60c35bd7ff500a04d479))
+* wait for CLI binary to exist ([#519](https://github.com/cloudquery/setup-cloudquery/issues/519)) ([7f1cec4](https://github.com/cloudquery/setup-cloudquery/commit/7f1cec4f7145e068b803687a3345a3362eff4381))
+
 ## [3.0.15](https://github.com/cloudquery/setup-cloudquery/compare/v3.0.14...v3.0.15) (2024-05-06)
 
 
