@@ -2,7 +2,7 @@ kind: source
 spec:
   name: 'aws-REGION_PLACEHOLDER'
   path: cloudquery/aws
-  version: 'v27.4.1' # latest version of aws plugin
+  version: 'v27.5.0' # latest version of aws plugin
   destinations: ['postgresql-REGION_PLACEHOLDER']
   tables: [aws_s3_buckets]
   skip_dependent_tables: true
