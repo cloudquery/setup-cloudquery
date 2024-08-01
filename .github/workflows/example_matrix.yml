@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4 # Checkout the code so we have access to the config file
       - name: Set region in config file
-        uses: jacobtomlinson/gha-find-replace@843224ee88a2d3b82ab00c5e6cc4633f9d765520
+        uses: jacobtomlinson/gha-find-replace@099c88fbf2a7da26b083521a8bfa13e4f0886b97
         with:
           include: example_configs/parallel.yml
           find: REGION_PLACEHOLDER
