@@ -6,7 +6,7 @@ inputs:
     description: 'CloudQuery CLI version to install'
     required: true
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: 'cloud-snow'
