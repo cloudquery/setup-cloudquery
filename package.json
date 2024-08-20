@@ -33,7 +33,7 @@
     "semver": "7.6.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
