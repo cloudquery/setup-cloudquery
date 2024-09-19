@@ -5,7 +5,7 @@ spec:
   version: 'v27.20.0' # latest version of aws plugin
   destinations: ['postgresql']
   tables: [aws_s3_buckets]
-  skip_dependent_tables: true
+  skip_tables: ['aws_cloudtrail_events', 'aws_iam_*']
 ---
 kind: destination
 spec:

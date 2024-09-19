@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         dbversion: ['postgres:latest']
-        cloudquery-version: ['5.12.1', 'v5.12.1']
+        cloudquery-version: ['6.8.0', 'v6.8.0']
         os: [ubuntu-latest]
       fail-fast: false
     services:
@@ -49,4 +49,4 @@ jobs:
       - name: Sync with CloudQuery
         env:
           CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
-        run: cloudquery sync example_configs/serial.yml --log-console
+        run: cloudquery sync example_configs/spec.yml --log-console
