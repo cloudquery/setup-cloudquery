@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        region: [us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1, eu-west-2] # List of regions to sync in parallel
+        shard: [1/6, 2/6, 3/6, 4/6, 5/6, 6/6]
     services:
       postgres:
         image: postgres:latest
@@ -31,12 +31,6 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v4 # Checkout the code so we have access to the config file
-      - name: Set region in config file
-        uses: jacobtomlinson/gha-find-replace@099c88fbf2a7da26b083521a8bfa13e4f0886b97
-        with:
-          include: example_configs/parallel.yml
-          find: REGION_PLACEHOLDER
-          replace: ${{ matrix.region }}
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4
         with:
@@ -45,9 +39,9 @@ jobs:
       - name: Setup CloudQuery
         uses: ./.
         with:
-          version: 'v5.12.1'
+          version: 'v6.8.0'
       - name: Sync with CloudQuery
-        run: cloudquery sync example_configs/parallel.yml --log-console
+        run: cloudquery sync example_configs/spec.yml --log-console --shard ${{ matrix.shard }}
         env:
           CLOUDQUERY_API_KEY: ${{ secrets.CLOUDQUERY_API_KEY }}
           CQ_DSN: postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable
