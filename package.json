@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "8.4.0",
     "@typescript-eslint/parser": "8.4.0",
     "@vercel/ncc": "0.38.2",
-    "eslint": "8.57.0",
+    "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-n": "17.10.3",
     "eslint-plugin-prettier": "5.2.1",
