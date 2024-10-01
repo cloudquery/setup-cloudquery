@@ -4,8 +4,7 @@ spec:
   path: 'cloudquery/aws'
   version: 'v27.21.0' # latest version of aws plugin
   destinations: ['postgresql']
-  tables: ['*']
-  skip_tables: ['aws_cloudtrail_events', 'aws_iam_*']
+  tables: ['aws_s3_buckets', 'aws_ec2_instances']
 ---
 kind: destination
 spec:
