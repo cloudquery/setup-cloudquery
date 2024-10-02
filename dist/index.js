@@ -18241,8 +18241,10 @@ pWaitFor.resolveWith = value => ({[resolveValue]: value});
 
 
 const binaries = {
-    darwin: 'cloudquery_darwin_amd64',
-    linux: 'cloudquery_linux_amd64',
+    darwin_arm64: 'cloudquery_darwin_arm64',
+    darwin_x64: 'cloudquery_darwin_amd64',
+    linux_arm64: 'cloudquery_linux_arm64',
+    linux_x64: 'cloudquery_linux_amd64',
 };
 const resolveDownloadUrl = async (version, binary) => {
     const tag = version.startsWith('v') ? `cli-${version}` : `cli-v${version}`;
@@ -18267,9 +18269,10 @@ const assetExists = async (url) => {
     }
 };
 const installBinary = async (version) => {
-    const binary = binaries[(0,external_os_.platform)()];
+    const binaryKey = ((0,external_os_.platform)() + '_' + (0,external_os_.arch)());
+    const binary = binaries[binaryKey];
     if (!binary) {
-        throw new Error(`Unsupported platform: ${(0,external_os_.platform)()}`);
+        throw new Error(`Unsupported platform: ${binaryKey}`);
     }
     const message = `version '${source.green(version)}'`;
     const spinner = ora(`Downloading ${message} of CloudQuery`).start();
