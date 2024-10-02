@@ -42,7 +42,7 @@ export const installBinary = async (version: string) => {
   const binaryKey = (platform() + '_' + arch()) as keyof typeof binaries;
   const binary = binaries[binaryKey];
   if (!binary) {
-    throw new Error(`Unsupported platform: ${platform()}`);
+    throw new Error(`Unsupported platform: ${binaryKey}`);
   }
   const message = `version '${chalk.green(version)}'`;
   const spinner = ora(`Downloading ${message} of CloudQuery`).start();
