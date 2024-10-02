@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
-import { platform } from 'os';
+import { platform, arch } from 'os';
 import { execaCommand } from 'execa';
 import ora from 'ora';
 import semver from 'semver';
@@ -9,8 +9,10 @@ import path from 'path';
 import pWaitFor from 'p-wait-for';
 
 const binaries = {
-  darwin: 'cloudquery_darwin_amd64',
-  linux: 'cloudquery_linux_amd64',
+  darwin_arm64: 'cloudquery_darwin_arm64',
+  darwin_x64: 'cloudquery_darwin_amd64',
+  linux_arm64: 'cloudquery_linux_arm64',
+  linux_x64: 'cloudquery_linux_amd64',
 };
 
 const resolveDownloadUrl = async (version: string, binary: string) => {
@@ -37,7 +39,8 @@ const assetExists = async (url: string) => {
 };
 
 export const installBinary = async (version: string) => {
-  const binary = binaries[platform() as keyof typeof binaries];
+  const binaryKey = (platform() + '_' + arch()) as keyof typeof binaries;
+  const binary = binaries[binaryKey];
   if (!binary) {
     throw new Error(`Unsupported platform: ${platform()}`);
   }
