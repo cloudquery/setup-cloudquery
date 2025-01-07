@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.2](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.1...v4.1.2) (2025-01-07)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @commitlint/cli to v19.6.1 ([#634](https://github.com/cloudquery/setup-cloudquery/issues/634)) ([cc6e6f6](https://github.com/cloudquery/setup-cloudquery/commit/cc6e6f65932b9b37ed8e009b9c7e519fb08a631e))
+* **deps:** Update dependency @types/node to v22.10.2 ([#635](https://github.com/cloudquery/setup-cloudquery/issues/635)) ([a36c687](https://github.com/cloudquery/setup-cloudquery/commit/a36c68795bb1d47b0af76e874a38d5714aede7b5))
+* **deps:** Update dependency chalk to v5.4.1 ([#637](https://github.com/cloudquery/setup-cloudquery/issues/637)) ([f46185f](https://github.com/cloudquery/setup-cloudquery/commit/f46185fd8c0f2ff79d75b76a7d469d76452edb01))
+* **deps:** Update dependency prettier to v3.4.2 ([#638](https://github.com/cloudquery/setup-cloudquery/issues/638)) ([cf623a7](https://github.com/cloudquery/setup-cloudquery/commit/cf623a78b723c256a9cd12d452ac25f0b85b9ed0))
+
 ## [4.1.1](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.0...v4.1.1) (2024-12-02)
 
 
