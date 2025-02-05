@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.3](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.2...v4.1.3) (2025-02-05)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v22.10.10 ([#652](https://github.com/cloudquery/setup-cloudquery/issues/652)) ([4678601](https://github.com/cloudquery/setup-cloudquery/commit/4678601aef251babe55f98d8b456fad8b720b2d8))
+* **deps:** Update dependency @types/pg to v8.11.11 ([#653](https://github.com/cloudquery/setup-cloudquery/issues/653)) ([bce709c](https://github.com/cloudquery/setup-cloudquery/commit/bce709ccbb9c917e76fd58c136dd8578b8d469f3))
+* **deps:** Update dependency typescript to v5.7.3 ([#655](https://github.com/cloudquery/setup-cloudquery/issues/655)) ([7930ccb](https://github.com/cloudquery/setup-cloudquery/commit/7930ccb1ce2984a0936fbfdd06b603b08fa5819c))
+* **deps:** Update eslint packages ([#656](https://github.com/cloudquery/setup-cloudquery/issues/656)) ([0251c47](https://github.com/cloudquery/setup-cloudquery/commit/0251c47d46bc630b93d9687589c713ad27c77044))
+
 ## [4.1.2](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.1...v4.1.2) (2025-01-07)
 
 
