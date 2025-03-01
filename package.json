@@ -36,8 +36,8 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.6.1",
-    "@commitlint/config-conventional": "19.6.0",
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
     "@types/node": "22.10.10",
     "@types/pg": "8.11.11",
     "@types/semver": "7.5.8",
