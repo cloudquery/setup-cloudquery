@@ -28,7 +28,7 @@
     "chalk": "5.4.1",
     "execa": "8.0.1",
     "node-fetch": "^3.3.2",
-    "ora": "8.1.1",
+    "ora": "8.2.0",
     "p-wait-for": "^5.0.2",
     "semver": "7.6.3"
   },
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
-    "@types/node": "22.10.10",
+    "@types/node": "22.13.5",
     "@types/pg": "8.11.11",
     "@types/semver": "7.5.8",
     "@typescript-eslint/eslint-plugin": "8.21.0",
