@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.4](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.3...v4.1.4) (2025-03-04)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v19.7.1 ([#664](https://github.com/cloudquery/setup-cloudquery/issues/664)) ([e7b8456](https://github.com/cloudquery/setup-cloudquery/commit/e7b8456c1f58acf5169b052bd685e2740b73ddcb))
+* **deps:** Update dependency @types/node to v22.13.5 ([#665](https://github.com/cloudquery/setup-cloudquery/issues/665)) ([b143795](https://github.com/cloudquery/setup-cloudquery/commit/b14379540e35d374c47b785178a662581b877829))
+* **deps:** Update dependency ora to v8.2.0 ([#667](https://github.com/cloudquery/setup-cloudquery/issues/667)) ([5de96c0](https://github.com/cloudquery/setup-cloudquery/commit/5de96c00c5d9ddb18fc5d1fa592831e2e2729403))
+* **deps:** Update dependency prettier to v3.5.1 ([#668](https://github.com/cloudquery/setup-cloudquery/issues/668)) ([937576c](https://github.com/cloudquery/setup-cloudquery/commit/937576cfa2bab1454f2b34dce0e5ee3948446d97))
+
 ## [4.1.3](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.2...v4.1.3) (2025-02-05)
 
 
