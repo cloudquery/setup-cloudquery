@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.5](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.4...v4.1.5) (2025-04-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v22.13.13 ([#676](https://github.com/cloudquery/setup-cloudquery/issues/676)) ([fed711e](https://github.com/cloudquery/setup-cloudquery/commit/fed711e418d799882595519bec38859b1e7b3aaf))
+* **deps:** Update dependency prettier to v3.5.3 ([#677](https://github.com/cloudquery/setup-cloudquery/issues/677)) ([a63d854](https://github.com/cloudquery/setup-cloudquery/commit/a63d854aef75a0015ba074a10635d3e6f65b6a50))
+
 ## [4.1.4](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.3...v4.1.4) (2025-03-04)
 
 
