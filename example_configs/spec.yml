@@ -2,7 +2,7 @@ kind: source
 spec:
   name: 'aws'
   path: 'cloudquery/aws'
-  version: 'v32.10.0' # latest version of aws plugin
+  version: 'v32.11.0' # latest version of aws plugin
   destinations: ['postgresql']
   tables: ['aws_s3_buckets', 'aws_ec2_instances']
 ---
@@ -10,6 +10,6 @@ kind: destination
 spec:
   name: 'postgresql'
   path: 'cloudquery/postgresql'
-  version: 'v8.8.0' # latest version of postgresql plugin
+  version: 'v8.8.1' # latest version of postgresql plugin
   spec:
     connection_string: 'postgresql://postgres:pass@localhost:5432/postgres?sslmode=disable'
