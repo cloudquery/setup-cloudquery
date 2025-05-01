@@ -38,7 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
-    "@types/node": "22.13.13",
+    "@types/node": "22.14.1",
     "@types/pg": "8.11.14",
     "@types/semver": "7.7.0",
     "@typescript-eslint/eslint-plugin": "8.21.0",
