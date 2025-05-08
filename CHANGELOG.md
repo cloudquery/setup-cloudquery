@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.6](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.5...v4.1.6) (2025-05-08)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v19.8.0 ([#691](https://github.com/cloudquery/setup-cloudquery/issues/691)) ([c3aad04](https://github.com/cloudquery/setup-cloudquery/commit/c3aad044d3d42fae6eb2a635c1ffa444dcc701a9))
+* **deps:** Update dependency @types/node to v22.14.1 ([#693](https://github.com/cloudquery/setup-cloudquery/issues/693)) ([01a2c56](https://github.com/cloudquery/setup-cloudquery/commit/01a2c56c95fac1ec90d64a732063c62a1797774e))
+* **deps:** Update dependency @types/pg to v8.11.14 ([#690](https://github.com/cloudquery/setup-cloudquery/issues/690)) ([1638027](https://github.com/cloudquery/setup-cloudquery/commit/16380271efdd9ef0f24fc869761e36cf6609aaa2))
+* **deps:** Update dependency semver to v7.7.1 ([#694](https://github.com/cloudquery/setup-cloudquery/issues/694)) ([21de0b1](https://github.com/cloudquery/setup-cloudquery/commit/21de0b1f11790265a2bd5c947f87f4fbf5e7f3d3))
+
 ## [4.1.5](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.4...v4.1.5) (2025-04-01)
 
 
