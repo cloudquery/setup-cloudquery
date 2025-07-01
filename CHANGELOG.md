@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.1.7](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.6...v4.1.7) (2025-07-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v19.8.1 ([#710](https://github.com/cloudquery/setup-cloudquery/issues/710)) ([a653327](https://github.com/cloudquery/setup-cloudquery/commit/a65332724ceec030e40bd4d7cf0d29e694d5dd98))
+* **deps:** Update dependency semver to v7.7.2 ([#711](https://github.com/cloudquery/setup-cloudquery/issues/711)) ([8ef0189](https://github.com/cloudquery/setup-cloudquery/commit/8ef0189cf882d6bbec443cfec7c1d6018fb3fc5c))
+
 ## [4.1.6](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.5...v4.1.6) (2025-05-08)
 
 
