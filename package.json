@@ -25,7 +25,7 @@
   "homepage": "https://github.com/cloudquery/setup-cloudquery#readme",
   "dependencies": {
     "@actions/core": "1.11.1",
-    "chalk": "5.4.1",
+    "chalk": "5.6.0",
     "execa": "8.0.1",
     "node-fetch": "^3.3.2",
     "ora": "8.2.0",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@types/node": "22.16.5",
+    "@types/node": "22.17.2",
     "@types/pg": "8.15.5",
     "@types/semver": "7.7.0",
     "@typescript-eslint/eslint-plugin": "8.21.0",
