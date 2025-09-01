@@ -25,7 +25,7 @@
   "homepage": "https://github.com/cloudquery/setup-cloudquery#readme",
   "dependencies": {
     "@actions/core": "1.11.1",
-    "chalk": "5.4.1",
+    "chalk": "5.6.0",
     "execa": "8.0.1",
     "node-fetch": "^3.3.2",
     "ora": "8.2.0",
