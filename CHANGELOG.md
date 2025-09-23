@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.1.9](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.8...v4.1.9) (2025-09-23)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v22.17.2 ([#741](https://github.com/cloudquery/setup-cloudquery/issues/741)) ([43be401](https://github.com/cloudquery/setup-cloudquery/commit/43be401d9341902c196bb0a55974a74c8252a66d))
+* **deps:** Update dependency @types/pg to v8.15.5 ([#740](https://github.com/cloudquery/setup-cloudquery/issues/740)) ([6dec952](https://github.com/cloudquery/setup-cloudquery/commit/6dec952a60f32ece6a8a302e23b1d645fb111972))
+* **deps:** Update dependency chalk to v5.6.0 ([#743](https://github.com/cloudquery/setup-cloudquery/issues/743)) ([2c69def](https://github.com/cloudquery/setup-cloudquery/commit/2c69def01bbff06e7282c9ef6c271e42e7367084))
+
 ## [4.1.8](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.7...v4.1.8) (2025-08-01)
 
 
