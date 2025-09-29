@@ -7,6 +7,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+
 jobs:
   cloudquery-sync:
     permissions:
@@ -15,8 +18,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        dbversion: ['postgres:latest']
-        cloudquery-version: ['6.8.0', 'v6.8.0']
+        dbversion: ["postgres:latest"]
+        cloudquery-version: ["6.8.0", "v6.8.0"]
         os: [ubuntu-latest]
       fail-fast: false
     services:
