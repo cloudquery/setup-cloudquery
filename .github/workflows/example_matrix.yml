@@ -5,6 +5,8 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+permissions:
+  contents: read
 jobs:
   cloudquery:
     permissions:
@@ -39,7 +41,7 @@ jobs:
       - name: Setup CloudQuery
         uses: ./.
         with:
-          version: 'v6.8.0'
+          version: "v6.8.0"
       - name: Sync with CloudQuery
         run: cloudquery sync example_configs/spec.yml --log-console --shard ${{ matrix.shard }}
         env:

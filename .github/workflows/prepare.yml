@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - release-*
+permissions:
+  contents: read
+
 jobs:
   prepare-dist:
     runs-on: ubuntu-latest
@@ -12,10 +15,10 @@ jobs:
           token: ${{ secrets.GH_CQ_BOT }}
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
+          node-version: "lts/*"
+          cache: "npm"
       - name: Install dependencies
         run: npm ci
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: Prepare dist'
+          commit_message: "chore: Prepare dist"
