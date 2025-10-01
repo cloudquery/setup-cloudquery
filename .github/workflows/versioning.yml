@@ -11,7 +11,7 @@ jobs:
   actions-tagger:
     runs-on: ubuntu-latest
     steps:
-      - uses: Actions-R-Us/actions-tagger@330ddfac760021349fef7ff62b372f2f691c20fb
+      - uses: Actions-R-Us/actions-tagger@148653c6179832f8392d083de6b46ad3dcc54de3
         with:
           publish_latest_tag: true
           token: ${{ secrets.GITHUB_TOKEN }}
