@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.1.10](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.9...v4.1.10) (2026-01-02)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @types/node to v22.19.3 ([#796](https://github.com/cloudquery/setup-cloudquery/issues/796)) ([aefb93b](https://github.com/cloudquery/setup-cloudquery/commit/aefb93b6930fe8ed61d519870d46bd58c173f1a7))
+* **deps:** Update dependency @types/pg to v8.16.0 ([#797](https://github.com/cloudquery/setup-cloudquery/issues/797)) ([c7a2bba](https://github.com/cloudquery/setup-cloudquery/commit/c7a2bba51e53c1f0f2812647dea5858b446e0417))
+* **deps:** Update dependency prettier to v3.7.4 ([#799](https://github.com/cloudquery/setup-cloudquery/issues/799)) ([ee5ee78](https://github.com/cloudquery/setup-cloudquery/commit/ee5ee7817c649376d07ef3c9bb011d5cbd9b7d42))
+* **deps:** Update eslint packages ([#800](https://github.com/cloudquery/setup-cloudquery/issues/800)) ([318fc74](https://github.com/cloudquery/setup-cloudquery/commit/318fc744f329706138b490ce8a48693799896fc6))
+
 ## [4.1.9](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.8...v4.1.9) (2025-12-02)
 
 
