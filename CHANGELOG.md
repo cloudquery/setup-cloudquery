@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.11...v5.0.0) (2026-03-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update minimal Node.js version ([#838](https://github.com/cloudquery/setup-cloudquery/issues/838))
+
+### Features
+
+* Update minimal Node.js version ([#838](https://github.com/cloudquery/setup-cloudquery/issues/838)) ([de80054](https://github.com/cloudquery/setup-cloudquery/commit/de8005495defea81423f8ba1d1084ea31f105a8b))
+
 ## [4.1.11](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.10...v4.1.11) (2026-02-06)
 
 
