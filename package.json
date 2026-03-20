@@ -30,7 +30,7 @@
     "node-fetch": "^3.3.2",
     "ora": "9.1.0",
     "p-wait-for": "^6.0.0",
-    "semver": "7.7.3"
+    "semver": "7.7.4"
   },
   "engines": {
     "node": ">=20.0.0"
