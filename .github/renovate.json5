@@ -19,7 +19,7 @@
     {
       // CLI version in example_matrix.yml (uses: ./. with version: "v6.8.0")
       customType: "regex",
-      fileMatch: ["^.github/workflows/example_matrix\\.yml$"],
+      fileMatch: ["^\\.github/workflows/example_matrix\\.yml$"],
       matchStrings: [
         "version\\:\\s+[\"'](?<currentValue>[^\"']+)[\"']",
       ],
@@ -31,7 +31,7 @@
     {
       // CLI version without v prefix in example.yml matrix (first value: "6.8.0")
       customType: "regex",
-      fileMatch: ["^.github/workflows/example\\.yml$"],
+      fileMatch: ["^\\.github/workflows/example\\.yml$"],
       matchStrings: [
         "cloudquery-version\\:\\s+\\[\"(?<currentValue>[^\"]+)\"",
       ],
@@ -43,7 +43,7 @@
     {
       // CLI version with v prefix in example.yml matrix (second value: "v6.8.0")
       customType: "regex",
-      fileMatch: ["^.github/workflows/example\\.yml$"],
+      fileMatch: ["^\\.github/workflows/example\\.yml$"],
       matchStrings: [
         "cloudquery-version\\:\\s+\\[\"[^\"]+\",\\s*\"(?<currentValue>[^\"]+)\"",
       ],
