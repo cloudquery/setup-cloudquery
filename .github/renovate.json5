@@ -29,11 +29,11 @@
       extractVersionTemplate: "^cli-(?<version>.+)$",
     },
     {
-      // CLI version without v prefix in example.yml matrix (first value: "6.8.0")
+      // CLI version without v prefix in example.yml (label: without-v-prefix)
       customType: "regex",
       fileMatch: ["^\\.github/workflows/example\\.yml$"],
       matchStrings: [
-        "cloudquery-version\\:\\s+\\[\"(?<currentValue>[^\"]+)\"",
+        "without-v-prefix[\\s\\S]*?cloudquery-version\\:\\s+\"(?<currentValue>[^\"]+)\"",
       ],
       packageNameTemplate: "cloudquery/cloudquery",
       depNameTemplate: "cli-no-v",
@@ -41,11 +41,11 @@
       extractVersionTemplate: "^cli-v(?<version>.+)$",
     },
     {
-      // CLI version with v prefix in example.yml matrix (second value: "v6.8.0")
+      // CLI version with v prefix in example.yml (label: with-v-prefix)
       customType: "regex",
       fileMatch: ["^\\.github/workflows/example\\.yml$"],
       matchStrings: [
-        "cloudquery-version\\:\\s+\\[\"[^\"]+\",\\s*\"(?<currentValue>[^\"]+)\"",
+        "with-v-prefix[\\s\\S]*?cloudquery-version\\:\\s+\"(?<currentValue>[^\"]+)\"",
       ],
       packageNameTemplate: "cloudquery/cloudquery",
       depNameTemplate: "cli",
