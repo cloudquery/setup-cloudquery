@@ -3,4 +3,57 @@
     "github>cloudquery/.github//.github/renovate-go-default.json5",
     "github>cloudquery/.github//.github/renovate-node-default.json5",
   ],
+  customManagers: [
+    {
+      // CLI version in README.md code example
+      customType: "regex",
+      fileMatch: ["^README\\.md$"],
+      matchStrings: [
+        "cloudquery/setup\\-cloudquery[\\s\\S]+?version\\:\\s+['\"]?(?<currentValue>[^'\"\\s]+)['\"]?",
+      ],
+      packageNameTemplate: "cloudquery/cloudquery",
+      depNameTemplate: "cli",
+      datasourceTemplate: "github-releases",
+      extractVersionTemplate: "^cli-(?<version>.+)$",
+    },
+    {
+      // CLI version in example_matrix.yml (uses: ./. with version: "v6.8.0")
+      customType: "regex",
+      fileMatch: ["^\\.github/workflows/example_matrix\\.yml$"],
+      matchStrings: [
+        "version\\:\\s+[\"'](?<currentValue>[^\"']+)[\"']",
+      ],
+      packageNameTemplate: "cloudquery/cloudquery",
+      depNameTemplate: "cli",
+      datasourceTemplate: "github-releases",
+      extractVersionTemplate: "^cli-(?<version>.+)$",
+    },
+    {
+      // CLI version without v prefix in example.yml matrix (first value: "6.8.0")
+      customType: "regex",
+      fileMatch: ["^\\.github/workflows/example\\.yml$"],
+      matchStrings: [
+        "cloudquery-version\\:\\s+\\[\"(?<currentValue>[^\"]+)\"",
+      ],
+      packageNameTemplate: "cloudquery/cloudquery",
+      depNameTemplate: "cli-no-v",
+      datasourceTemplate: "github-releases",
+      extractVersionTemplate: "^cli-v(?<version>.+)$",
+    },
+    {
+      // CLI version with v prefix in example.yml matrix (second value: "v6.8.0")
+      customType: "regex",
+      fileMatch: ["^\\.github/workflows/example\\.yml$"],
+      matchStrings: [
+        "cloudquery-version\\:\\s+\\[\"[^\"]+\",\\s*\"(?<currentValue>[^\"]+)\"",
+      ],
+      packageNameTemplate: "cloudquery/cloudquery",
+      depNameTemplate: "cli",
+      datasourceTemplate: "github-releases",
+      extractVersionTemplate: "^cli-(?<version>.+)$",
+    },
+  ],
+  "github-actions": {
+    fileMatch: ["^README\\.md$"],
+  },
 }

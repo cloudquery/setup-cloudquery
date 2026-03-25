@@ -14,4 +14,3 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v4
         with:
           token: ${{ secrets.GH_CQ_BOT }}
-          release-type: node
