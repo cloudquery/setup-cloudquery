@@ -52,5 +52,15 @@
       datasourceTemplate: "github-releases",
       extractVersionTemplate: "^cli-(?<version>.+)$",
     },
+    {
+      // GitHub Actions in README.md (e.g. actions/checkout@v4, aws-actions/configure-aws-credentials@v4)
+      // Excludes cloudquery/setup-cloudquery which is managed by release-please
+      customType: "regex",
+      fileMatch: ["^README\\.md$"],
+      matchStrings: [
+        "uses:\\s+(?<depName>(?!cloudquery/setup-cloudquery)[\\w-]+/[\\w-]+)@(?<currentValue>[^\\s#]+)",
+      ],
+      datasourceTemplate: "github-tags",
+    },
   ],
 }
