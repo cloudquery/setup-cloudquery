@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.0.1](https://github.com/cloudquery/setup-cloudquery/compare/setup-cloudquery-v5.0.0...setup-cloudquery-v5.0.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v20.4.4 ([#841](https://github.com/cloudquery/setup-cloudquery/issues/841)) ([3a60913](https://github.com/cloudquery/setup-cloudquery/commit/3a6091346eb43b438e5bd28b538da33cc82533d9))
+* **deps:** Update dependency @actions/core to v3 ([#847](https://github.com/cloudquery/setup-cloudquery/issues/847)) ([ab54d16](https://github.com/cloudquery/setup-cloudquery/commit/ab54d16e96e05a80dcf03e16c6cc299cc0df98e1))
+* **deps:** Update dependency @types/node to v24.12.0 ([#842](https://github.com/cloudquery/setup-cloudquery/issues/842)) ([eebb42e](https://github.com/cloudquery/setup-cloudquery/commit/eebb42edf15d6560fc980a5f158a5949606279bc))
+* **deps:** Update dependency @types/pg to v8.18.0 ([#843](https://github.com/cloudquery/setup-cloudquery/issues/843)) ([37598ba](https://github.com/cloudquery/setup-cloudquery/commit/37598ba83a4c301000bb590be6cc601c6b7149d6))
+* **deps:** Update dependency execa to v9 ([#848](https://github.com/cloudquery/setup-cloudquery/issues/848)) ([499fe37](https://github.com/cloudquery/setup-cloudquery/commit/499fe3752cba42de14db1edcdbb571791769edd1))
+* **deps:** Update dependency ora to v9.3.0 ([#844](https://github.com/cloudquery/setup-cloudquery/issues/844)) ([1f174ed](https://github.com/cloudquery/setup-cloudquery/commit/1f174edc1d279946dc06bc3454b4493b72e698f9))
+* **deps:** Update dependency semver to v7.7.4 ([#840](https://github.com/cloudquery/setup-cloudquery/issues/840)) ([83684f9](https://github.com/cloudquery/setup-cloudquery/commit/83684f981de121ccf03ccec0173ab24a4fcd2bbd))
+* **deps:** Update eslint packages ([#845](https://github.com/cloudquery/setup-cloudquery/issues/845)) ([a2e8ca8](https://github.com/cloudquery/setup-cloudquery/commit/a2e8ca802ca103d8e3925b23dfab21b5d872d6c0))
+
 ## [5.0.0](https://github.com/cloudquery/setup-cloudquery/compare/v4.1.11...v5.0.0) (2026-03-20)
 
 
