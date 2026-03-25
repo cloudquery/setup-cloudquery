@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 env:
-  CLOUDQUERY_VERSION: "v6.8.0"
+  CLOUDQUERY_VERSION: "v6.35.2"
 jobs:
   cloudquery:
     permissions:
@@ -34,7 +34,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v6 # Checkout the code so we have access to the config file
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6 # Checkout the code so we have access to the config file
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6
         with:
