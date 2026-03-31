@@ -34,7 +34,7 @@ jobs:
           role-to-assume: <role-arn>
           aws-region: <region>
 
-      - uses: cloudquery/setup-cloudquery@ac7302f8eab40c6d17c16535fbc302d8bdc12d7f # v5.0.0 # x-release-please-version
+      - uses: cloudquery/setup-cloudquery@ac7302f8eab40c6d17c16535fbc302d8bdc12d7f # v5.0.1 # x-release-please-version
         name: Setup CloudQuery
         with:
           # Required. Must be a valid SemVer version
