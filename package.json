@@ -51,5 +51,6 @@
     "husky": "^9.0.11",
     "prettier": "3.8.1",
     "typescript": "5.9.3"
-  }
+  },
+  "packageManager": "pnpm@10.23.0"
 }
