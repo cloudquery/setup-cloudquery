@@ -25,11 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout a git repository with a pre-existing CloudQuery configuration files
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       # Setup AWS credentials (example)
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6
         with:
           role-to-assume: <role-arn>
           aws-region: <region>
