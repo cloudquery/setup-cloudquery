@@ -1,7 +1,7 @@
 // @ts-check
 
 /** @param {import('@actions/github-script').AsyncFunctionArguments} args */
-module.exports = async ({ github, context }) => {
+export default async function updateMajorTag({ github, context }) {
   const tag = context.payload.release?.tag_name;
   if (!tag) {
     throw new Error("No release tag found in event payload");
@@ -42,4 +42,4 @@ module.exports = async ({ github, context }) => {
       }
     }
   }
-};
+}
