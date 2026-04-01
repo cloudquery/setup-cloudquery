@@ -29,7 +29,7 @@ export default async function updateMajorTag({ github, context }) {
       });
       console.log(`Updated ${ref} to ${sha}`);
     } catch (error) {
-      if (error.status === 422) {
+      if (error?.status === 404 || error?.status === 422) {
         await github.rest.git.createRef({
           owner: context.repo.owner,
           repo: context.repo.repo,
