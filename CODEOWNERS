@@ -1,6 +1,6 @@
 * @cloudquery/backend
 
-package-lock.json
+pnpm-lock.yaml
 package.json
 .release-please-manifest.json
 CHANGELOG.md
