@@ -11,7 +11,9 @@ jobs:
   actions-tagger:
     runs-on: ubuntu-latest
     steps:
-      - uses: Actions-R-Us/actions-tagger@148653c6179832f8392d083de6b46ad3dcc54de3
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
-          publish_latest_tag: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fn = require('./.github/scripts/update-major-tag.js');
+            await fn({ github, context });
