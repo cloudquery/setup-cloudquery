@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.2](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.1...v5.0.2) (2026-04-01)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v20.5.0 ([#872](https://github.com/cloudquery/setup-cloudquery/issues/872)) ([bb885e7](https://github.com/cloudquery/setup-cloudquery/commit/bb885e78f9c077c499b37edb5fd7724350fc2631))
+* **deps:** Update dependency @types/pg to v8.20.0 ([#873](https://github.com/cloudquery/setup-cloudquery/issues/873)) ([a3fa8fa](https://github.com/cloudquery/setup-cloudquery/commit/a3fa8fa62dd73a60bbc97bc15cfc8f4b3711e5ba))
+* **deps:** Update dependency typescript to v6 ([#877](https://github.com/cloudquery/setup-cloudquery/issues/877)) ([af0fed6](https://github.com/cloudquery/setup-cloudquery/commit/af0fed64539138a4a74789d2ebc4fd31558f2067))
+* **deps:** Update eslint packages to v10 (major) ([#878](https://github.com/cloudquery/setup-cloudquery/issues/878)) ([b58721b](https://github.com/cloudquery/setup-cloudquery/commit/b58721bf1af169746501b15c532f0f836607c879))
+* **deps:** Update eslint packages to v8.57.2 ([#871](https://github.com/cloudquery/setup-cloudquery/issues/871)) ([a9e85f2](https://github.com/cloudquery/setup-cloudquery/commit/a9e85f233811d7f6b8c029c594986b5dc64feb11))
+* **deps:** Update pnpm to v10.33.0 ([#874](https://github.com/cloudquery/setup-cloudquery/issues/874)) ([9d7ae11](https://github.com/cloudquery/setup-cloudquery/commit/9d7ae1164316c5f6b5563b4ab258799a362fc865))
+
 ## [5.0.1](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.0...v5.0.1) (2026-03-31)
 
 
