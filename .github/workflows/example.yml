@@ -26,7 +26,7 @@ jobs:
             os: ubuntu-latest
           - label: "with-v-prefix"
             dbversion: "postgres:latest"
-            cloudquery-version: "v6.35.5"
+            cloudquery-version: "v6.35.6"
             os: ubuntu-latest
       fail-fast: false
     services:
