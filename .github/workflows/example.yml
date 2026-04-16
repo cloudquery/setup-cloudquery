@@ -22,7 +22,7 @@ jobs:
         include:
           - label: "without-v-prefix"
             dbversion: "postgres:latest"
-            cloudquery-version: "6.35.6"
+            cloudquery-version: "6.35.7"
             os: ubuntu-latest
           - label: "with-v-prefix"
             dbversion: "postgres:latest"
