@@ -36795,7 +36795,7 @@ __nccwpck_require__.d(__webpack_exports__, {
 
 ;// CONCATENATED MODULE: external "os"
 const external_os_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/utils.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/utils.js
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
@@ -36831,7 +36831,7 @@ function utils_toCommandProperties(annotationProperties) {
     };
 }
 //# sourceMappingURL=utils.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/command.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/command.js
 
 
 /**
@@ -36927,7 +36927,7 @@ function escapeProperty(s) {
 const external_crypto_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
 // EXTERNAL MODULE: external "fs"
 var external_fs_ = __nccwpck_require__(9896);
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/file-command.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/file-command.js
 // For internal use, subject to change.
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -37837,7 +37837,7 @@ class PersonalAccessTokenCredentialHandler {
     }
 }
 //# sourceMappingURL=auth.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/oidc-utils.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/oidc-utils.js
 var oidc_utils_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37911,7 +37911,7 @@ class oidc_utils_OidcClient {
     }
 }
 //# sourceMappingURL=oidc-utils.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/summary.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/summary.js
 var summary_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -38192,7 +38192,7 @@ const _summary = new Summary();
 const markdownSummary = (/* unused pure expression or super */ null && (_summary));
 const summary = (/* unused pure expression or super */ null && (_summary));
 //# sourceMappingURL=summary.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/path-utils.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/path-utils.js
 
 /**
  * toPosixPath converts the given path to the posix form. On Windows, \\ will be
@@ -39356,7 +39356,7 @@ function getExecOutput(commandLine, args, options) {
     });
 }
 //# sourceMappingURL=exec.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/platform.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/platform.js
 var platform_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -39421,7 +39421,7 @@ function getDetails() {
     });
 }
 //# sourceMappingURL=platform.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.0/node_modules/@actions/core/lib/core.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+core@3.0.1/node_modules/@actions/core/lib/core.js
 var core_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -52251,7 +52251,7 @@ function isInteractive({stream = process.stdout} = {}) {
 	);
 }
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/stdin-discarder@0.3.1/node_modules/stdin-discarder/index.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/stdin-discarder@0.3.2/node_modules/stdin-discarder/index.js
 
 
 const ASCII_ETX_CODE = 0x03; // Ctrl+C
@@ -52268,11 +52268,8 @@ class StdinDiscarder {
 
 		const code = typeof chunk === 'string' ? chunk.codePointAt(0) : chunk[0];
 		if (code === ASCII_ETX_CODE) {
-			if (external_node_process_.listenerCount('SIGINT') > 0) {
-				external_node_process_.emit('SIGINT');
-			} else {
-				external_node_process_.kill(external_node_process_.pid, 'SIGINT');
-			}
+			// Always re-signal the process. Emitting `SIGINT` directly breaks normal Ctrl+C termination when libraries install listeners for cleanup.
+			external_node_process_.kill(external_node_process_.pid, 'SIGINT');
 		}
 	};
 
@@ -52340,7 +52337,7 @@ const stdinDiscarder = new StdinDiscarder();
 
 /* harmony default export */ const stdin_discarder = (Object.freeze(stdinDiscarder));
 
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ora@9.3.0/node_modules/ora/index.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ora@9.4.0/node_modules/ora/index.js
 
 
 
@@ -52360,6 +52357,8 @@ const SYNCHRONIZED_OUTPUT_DISABLE = '\u001B[?2026l';
 // Global state for concurrent spinner detection
 const activeHooksPerStream = new Map(); // Stream → ora instance
 
+const validColors = new Set(['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'gray']);
+
 class Ora {
 	#linesToClear = 0;
 	#frameIndex = -1;
@@ -52373,7 +52372,7 @@ class Ora {
 	#drainHandler;
 	#deferRenderTimer;
 	#isDiscardingStdin = false;
-	color;
+	#color;
 
 	// Helper to execute writes while preventing hook recursion
 	#internalWrite(fn) {
@@ -52482,6 +52481,10 @@ class Ora {
 
 		if (typeof this.#options.isSilent !== 'boolean') {
 			this.#options.isSilent = false;
+		}
+
+		if (this.#options.interval !== undefined && !(Number.isInteger(this.#options.interval) && this.#options.interval > 0)) {
+			throw new Error('The `interval` option must be a positive integer');
 		}
 
 		// Set *after* `this.#stream`.
@@ -52629,6 +52632,18 @@ class Ora {
 		return count;
 	}
 
+	get color() {
+		return this.#color;
+	}
+
+	set color(value) {
+		if (value !== undefined && value !== false && !validColors.has(value)) {
+			throw new Error('The `color` option must be a valid color or `false` to disable');
+		}
+
+		this.#color = value;
+	}
+
 	get isEnabled() {
 		return this.#options.isEnabled && !this.#options.isSilent;
 	}
@@ -52664,8 +52679,8 @@ class Ora {
 		const {frames} = this.#spinner;
 		let frame = frames[this.#frameIndex];
 
-		if (this.color) {
-			frame = source[this.color](frame);
+		if (this.#color) {
+			frame = source[this.#color](frame);
 		}
 
 		const fullPrefixText = this.#getFullPrefixText(this.#options.prefixText, ' ');
@@ -52949,9 +52964,14 @@ async function oraPromise(action, options) {
 		throw new TypeError('Parameter `action` must be a Function or a Promise');
 	}
 
-	const {successText, failText} = typeof options === 'object'
+	const {
+		successText,
+		failText,
+		successSymbol,
+		failSymbol,
+	} = typeof options === 'object'
 		? options
-		: {successText: undefined, failText: undefined};
+		: {};
 
 	const spinner = ora(options).start();
 
@@ -52959,15 +52979,27 @@ async function oraPromise(action, options) {
 		const promise = actionIsFunction ? action(spinner) : action;
 		const result = await promise;
 
-		spinner.succeed(successText === undefined
+		const text = successText === undefined
 			? undefined
-			: (typeof successText === 'string' ? successText : successText(result)));
+			: (typeof successText === 'string' ? successText : successText(result));
+
+		if (successSymbol === undefined) {
+			spinner.succeed(text);
+		} else {
+			spinner.stopAndPersist({symbol: successSymbol, text});
+		}
 
 		return result;
 	} catch (error) {
-		spinner.fail(failText === undefined
+		const text = failText === undefined
 			? undefined
-			: (typeof failText === 'string' ? failText : failText(error)));
+			: (typeof failText === 'string' ? failText : failText(error));
+
+		if (failSymbol === undefined) {
+			spinner.fail(text);
+		} else {
+			spinner.stopAndPersist({symbol: failSymbol, text});
+		}
 
 		throw error;
 	}
