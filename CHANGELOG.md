@@ -1,5 +1,18 @@
 # Changelog
 
+## [5.0.3](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.2...v5.0.3) (2026-05-01)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @actions/core to v3.0.1 ([#897](https://github.com/cloudquery/setup-cloudquery/issues/897)) ([4c19dee](https://github.com/cloudquery/setup-cloudquery/commit/4c19deea463f6db4b60506d7085cf484fe8a5d09))
+* **deps:** Update dependency @types/node to v24.12.2 ([#898](https://github.com/cloudquery/setup-cloudquery/issues/898)) ([51a62a8](https://github.com/cloudquery/setup-cloudquery/commit/51a62a826d7d30398a4c3d5417bc97972cb4ee40))
+* **deps:** Update dependency ora to v9.4.0 ([#902](https://github.com/cloudquery/setup-cloudquery/issues/902)) ([aae7ed2](https://github.com/cloudquery/setup-cloudquery/commit/aae7ed29a39faeac6cfa858fe36be9bff0ea62e4))
+* **deps:** Update dependency prettier to v3.8.3 ([#899](https://github.com/cloudquery/setup-cloudquery/issues/899)) ([43b1b9c](https://github.com/cloudquery/setup-cloudquery/commit/43b1b9c6f183d77833d0d10ad40d849c5182e132))
+* **deps:** Update dependency typescript to v6.0.3 ([#900](https://github.com/cloudquery/setup-cloudquery/issues/900)) ([e893d12](https://github.com/cloudquery/setup-cloudquery/commit/e893d12e6c2820909ac9ceeb87034dd3bea94303))
+* **deps:** Update eslint packages ([#903](https://github.com/cloudquery/setup-cloudquery/issues/903)) ([80981cb](https://github.com/cloudquery/setup-cloudquery/commit/80981cb386401b3c3bf8ae2304572154985d2bcc))
+* **deps:** Update pnpm to v10.33.2 ([#901](https://github.com/cloudquery/setup-cloudquery/issues/901)) ([104db7a](https://github.com/cloudquery/setup-cloudquery/commit/104db7ace1e9247f1704bcff0df554fb3b29efda))
+
 ## [5.0.2](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.1...v5.0.2) (2026-04-01)
 
 
