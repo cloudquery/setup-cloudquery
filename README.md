@@ -29,7 +29,7 @@ jobs:
 
       # Setup AWS credentials (example)
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6
+        uses: aws-actions/configure-aws-credentials@99214aa6889fcddfa57764031d71add364327e59 # v6
         with:
           role-to-assume: <role-arn>
           aws-region: <region>
