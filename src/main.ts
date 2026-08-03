@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 import { platform, arch } from 'os';
-import { execaCommand } from 'execa';
+import { execa } from 'execa';
 import ora from 'ora';
 import semver from 'semver';
 import path from 'path';
@@ -51,10 +51,10 @@ export const installBinary = async (version: string) => {
     interval: 5000,
     timeout: 60000,
   });
-  await execaCommand(`curl -L ${downloadUrl} -o cloudquery`, {
+  await execa('curl', ['-L', downloadUrl, '-o', 'cloudquery'], {
     stdout: 'inherit',
   });
-  await execaCommand('chmod +x cloudquery');
+  await execa('chmod', ['+x', 'cloudquery']);
   core.addPath(path.resolve('./'));
   spinner.succeed(`Finished downloading ${message} of CloudQuery`);
 };

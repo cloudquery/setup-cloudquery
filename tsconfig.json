@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "incremental": true,
+    "noEmit": true,
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
@@ -8,8 +8,6 @@
     "declaration": false,
     "declarationMap": false,
     "sourceMap": false,
-    "rootDir": "./src",
-    "outDir": "./dist",
     "removeComments": false,
     "strict": true,
     "esModuleInterop": true,
