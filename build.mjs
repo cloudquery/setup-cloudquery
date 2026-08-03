@@ -7,6 +7,8 @@ await esbuild.build({
   platform: 'node',
   target: 'node24',
   format: 'esm',
+  minify: true,
+  keepNames: true,
   // Bundled CommonJS dependencies still call require() at runtime
   banner: {
     js: [
