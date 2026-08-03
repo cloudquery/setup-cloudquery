@@ -28,6 +28,9 @@ jobs:
       - name: Run Linter
         run: pnpm run lint
 
+      - name: Typecheck
+        run: pnpm run typecheck
+
       - name: Check Format
         run: pnpm run format:ci
 

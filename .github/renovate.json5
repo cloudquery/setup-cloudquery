@@ -3,6 +3,14 @@
     "github>cloudquery/.github//.github/renovate-go-default.json5",
     "github>cloudquery/.github//.github/renovate-node-default.json5",
   ],
+  packageRules: [
+    {
+      // typescript-eslint has no release supporting TS 7 yet
+      // https://github.com/typescript-eslint/typescript-eslint/issues/10940
+      matchPackageNames: ["typescript"],
+      allowedVersions: "<7",
+    },
+  ],
   customManagers: [
     {
       // CLI version in README.md code example
