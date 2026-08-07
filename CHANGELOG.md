@@ -1,5 +1,18 @@
 # Changelog
 
+## [5.0.4](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.3...v5.0.4) (2026-08-07)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo ([#971](https://github.com/cloudquery/setup-cloudquery/issues/971)) ([938a563](https://github.com/cloudquery/setup-cloudquery/commit/938a563adfabf8c416dc3b92187e1a5847f7bd60))
+* **deps:** Update dependency @types/node to v24.13.3 ([#968](https://github.com/cloudquery/setup-cloudquery/issues/968)) ([31a359f](https://github.com/cloudquery/setup-cloudquery/commit/31a359fdda880fb1093004e854730f87de0b4a3e))
+* **deps:** Update dependency @vercel/ncc to v0.44.1 ([#969](https://github.com/cloudquery/setup-cloudquery/issues/969)) ([3c3013e](https://github.com/cloudquery/setup-cloudquery/commit/3c3013e8fd2112a32f559ed709cc534c7d250c4e))
+* **deps:** Update dependency prettier to v3.9.6 ([#972](https://github.com/cloudquery/setup-cloudquery/issues/972)) ([50595cd](https://github.com/cloudquery/setup-cloudquery/commit/50595cdf549207e4fcb2dba01a547788422326e0))
+* **deps:** Update eslint packages ([#970](https://github.com/cloudquery/setup-cloudquery/issues/970)) ([aa115fe](https://github.com/cloudquery/setup-cloudquery/commit/aa115fe27bcb64846a83a85101a7ceaa95678fa9))
+* **deps:** Update pnpm to v11.17.0 ([#973](https://github.com/cloudquery/setup-cloudquery/issues/973)) ([940ecc9](https://github.com/cloudquery/setup-cloudquery/commit/940ecc9a3947fb6a9f4c8504c2e6e43abf22fcb8))
+* Unblock dependency updates by replacing ncc with esbuild ([#978](https://github.com/cloudquery/setup-cloudquery/issues/978)) ([0a1fcba](https://github.com/cloudquery/setup-cloudquery/commit/0a1fcbaa606146c2d95248abf145ffa6664658b3))
+
 ## [5.0.3](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.2...v5.0.3) (2026-07-06)
 
 
