@@ -42,7 +42,7 @@
     "@eslint/eslintrc": "3.3.6",
     "@eslint/js": "10.0.1",
     "@types/node": "24.13.3",
-    "@types/pg": "8.20.0",
+    "@types/pg": "8.23.1",
     "@types/semver": "7.7.1",
     "@typescript-eslint/eslint-plugin": "8.65.0",
     "@typescript-eslint/parser": "8.65.0",
