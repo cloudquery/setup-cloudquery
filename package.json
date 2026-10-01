@@ -37,11 +37,11 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.2",
-    "@commitlint/config-conventional": "21.2.2",
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
     "@eslint/eslintrc": "3.3.6",
     "@eslint/js": "10.0.1",
-    "@types/node": "24.13.3",
+    "@types/node": "24.13.6",
     "@types/pg": "8.23.1",
     "@types/semver": "7.8.0",
     "@typescript-eslint/eslint-plugin": "8.68.0",
@@ -52,7 +52,7 @@
     "eslint-plugin-n": "18.3.0",
     "eslint-plugin-prettier": "5.5.6",
     "husky": "^9.0.11",
-    "prettier": "3.9.6",
+    "prettier": "3.9.9",
     "typescript": "6.0.3"
   },
   "packageManager": "pnpm@11.27.1"
