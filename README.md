@@ -38,7 +38,7 @@ jobs:
         name: Setup CloudQuery
         with:
           # Required. Must be a valid SemVer version
-          version: 'v6.49.0'
+          version: 'v6.49.1'
 
       - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...] --log-console
