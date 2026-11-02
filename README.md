@@ -34,11 +34,11 @@ jobs:
           role-to-assume: <role-arn>
           aws-region: <region>
 
-      - uses: cloudquery/setup-cloudquery@77d0ae10d00d0eaf349d7babde43bf5978250142 # v5.0.5 # x-release-please-version
+      - uses: cloudquery/setup-cloudquery@3b6ae9d08be7cca123e33ac7f0f74730be212861 # v5.0.5 # x-release-please-version
         name: Setup CloudQuery
         with:
           # Required. Must be a valid SemVer version
-          version: 'v6.49.2'
+          version: 'v6.50.0'
 
       - name: Sync with CloudQuery
         run: cloudquery sync [file or directories...] --log-console
