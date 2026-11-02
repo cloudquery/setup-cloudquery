@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.0.5](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.4...v5.0.5) (2026-11-02)
+
+
+### Bug Fixes
+
+* **deps:** Update commitlint monorepo to v21.2.4 ([#1050](https://github.com/cloudquery/setup-cloudquery/issues/1050)) ([8256990](https://github.com/cloudquery/setup-cloudquery/commit/8256990f0257b122b4314ea1870275c9228b113a))
+* **deps:** Update dependency @types/node to v24.19.2 ([#1053](https://github.com/cloudquery/setup-cloudquery/issues/1053)) ([b05fafc](https://github.com/cloudquery/setup-cloudquery/commit/b05fafc4f82fb8d3a2a93e55f3b93eab9eee67be))
+* **deps:** Update dependency @types/node to v26 ([#1056](https://github.com/cloudquery/setup-cloudquery/issues/1056)) ([0016331](https://github.com/cloudquery/setup-cloudquery/commit/001633142e6d77aaf99b2e00a9fb9550fc080592))
+* **deps:** Update dependency chalk to v6.0.1 ([#1051](https://github.com/cloudquery/setup-cloudquery/issues/1051)) ([98585f7](https://github.com/cloudquery/setup-cloudquery/commit/98585f7c0ca73d667cabcddb56a39149b1cda7bf))
+* **deps:** Update dependency p-wait-for to v7 ([#1057](https://github.com/cloudquery/setup-cloudquery/issues/1057)) ([9e4c1b2](https://github.com/cloudquery/setup-cloudquery/commit/9e4c1b2a066687223af2dde21a2d18245d191afa))
+* **deps:** Update dependency prettier to v3.9.10 ([#1052](https://github.com/cloudquery/setup-cloudquery/issues/1052)) ([db85bd7](https://github.com/cloudquery/setup-cloudquery/commit/db85bd79f557fdb2421943d3476ead15bb0c331d))
+* **deps:** Update eslint packages ([#1054](https://github.com/cloudquery/setup-cloudquery/issues/1054)) ([f858c3b](https://github.com/cloudquery/setup-cloudquery/commit/f858c3bb5bda66adbd88cb85c60136695b2af5f8))
+* **deps:** Update pnpm to v12.15.0 ([#1055](https://github.com/cloudquery/setup-cloudquery/issues/1055)) ([e71fccd](https://github.com/cloudquery/setup-cloudquery/commit/e71fccd77053f39b64a7aeb60e7c68431ae4ff2d))
+
 ## [5.0.4](https://github.com/cloudquery/setup-cloudquery/compare/v5.0.3...v5.0.4) (2026-10-21)
 
 
